@@ -1,28 +1,28 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const closeMenu = () => {
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
   const openBlog = () => {
     window.open("https://maxritter.bloggi.co/", "_blank");
-    if (isMenuOpen) setIsMenuOpen(false);
+    closeMenu();
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#" className="text-xl font-bold text-foreground">
+          <Link to="/" className="text-xl font-bold text-foreground">
             Max
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -33,18 +33,18 @@ const Header = () => {
           >
             Blog
           </button>
-          <button 
-            onClick={() => scrollToSection('work')} 
+          <Link 
+            to="/work" 
             className="text-foreground/80 hover:text-primary transition-colors"
           >
             Work
-          </button>
-          <button 
-            onClick={() => scrollToSection('skills')} 
+          </Link>
+          <Link 
+            to="/skills" 
             className="text-foreground/80 hover:text-primary transition-colors"
           >
             Skills
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -63,18 +63,20 @@ const Header = () => {
             >
               Blog
             </button>
-            <button 
-              onClick={() => scrollToSection('work')} 
+            <Link 
+              to="/work" 
+              onClick={closeMenu}
               className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
             >
               Work
-            </button>
-            <button 
-              onClick={() => scrollToSection('skills')} 
+            </Link>
+            <Link 
+              to="/skills" 
+              onClick={closeMenu}
               className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
             >
               Skills
-            </button>
+            </Link>
           </nav>
         </div>
       )}

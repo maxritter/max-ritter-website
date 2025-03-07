@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, GraduationCap, Globe, Briefcase } from "lucide-react";
 
@@ -43,12 +42,8 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-muted/10 py-16">
+    <section className="section-padding bg-muted/10">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Skillset</h2>
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <Card className="card-hover">
             <CardHeader className="flex flex-row items-center gap-4">

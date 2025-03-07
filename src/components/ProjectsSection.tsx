@@ -151,12 +151,8 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="work" className="section-padding">
+    <section className="section-padding">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Selected Work</h2>
-        </div>
-        
         <div className="space-y-8">
           {workProjects.map((project) => (
             <Card key={project.id} className="card-hover overflow-hidden">
