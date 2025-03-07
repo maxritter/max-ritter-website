@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className="flex flex-col items-center mb-12">
             <div className="w-64 h-64 rounded-full overflow-hidden mb-8 border-4 border-muted">
               <img 
-                src="/lovable-uploads/6d10ee04-d3a0-4ed6-ba40-8790eb4aa3c4.png" 
+                src="/lovable-uploads/3de991a8-d081-4070-884f-69750fa99025.png" 
                 alt="Profile" 
                 className="w-full h-full object-cover"
               />
@@ -34,13 +34,13 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Button variant="outline" size="lg" className="border-2 rounded-md">
+              <Button variant="outline" size="lg" className="border-2 rounded-md" onClick={() => window.open("https://maxritter.bloggi.co/", "_blank")}>
                 BLOG
               </Button>
-              <Button variant="outline" size="lg" className="border-2 rounded-md">
+              <Button variant="outline" size="lg" className="border-2 rounded-md" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}>
                 WORK
               </Button>
-              <Button variant="outline" size="lg" className="border-2 rounded-md">
+              <Button variant="outline" size="lg" className="border-2 rounded-md" onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>
                 SKILLS
               </Button>
             </div>

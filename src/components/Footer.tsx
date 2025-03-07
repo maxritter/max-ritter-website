@@ -14,6 +14,9 @@ const Footer = () => {
             <a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a>
           </div>
         </div>
+        <div className="mt-4 text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Max Ritter. All rights reserved.
+        </div>
       </div>
     </footer>
   );
