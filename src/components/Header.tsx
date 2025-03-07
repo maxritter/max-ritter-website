@@ -1,10 +1,12 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const closeMenu = () => {
@@ -13,6 +15,11 @@ const Header = () => {
 
   const openBlog = () => {
     window.open("https://maxritter.bloggi.co/", "_blank");
+    closeMenu();
+  };
+
+  const navigateTo = (path: string) => {
+    navigate(path);
     closeMenu();
   };
 
@@ -33,18 +40,18 @@ const Header = () => {
           >
             Blog
           </button>
-          <Link 
-            to="/work" 
+          <button 
+            onClick={() => navigateTo('/work')} 
             className="text-foreground/80 hover:text-primary transition-colors"
           >
             Work
-          </Link>
-          <Link 
-            to="/skills" 
+          </button>
+          <button 
+            onClick={() => navigateTo('/skills')} 
             className="text-foreground/80 hover:text-primary transition-colors"
           >
             Skills
-          </Link>
+          </button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -63,20 +70,18 @@ const Header = () => {
             >
               Blog
             </button>
-            <Link 
-              to="/work" 
-              onClick={closeMenu}
+            <button 
+              onClick={() => navigateTo('/work')}
               className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
             >
               Work
-            </Link>
-            <Link 
-              to="/skills" 
-              onClick={closeMenu}
+            </button>
+            <button 
+              onClick={() => navigateTo('/skills')}
               className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
             >
               Skills
-            </Link>
+            </button>
           </nav>
         </div>
       )}
