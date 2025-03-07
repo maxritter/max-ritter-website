@@ -1,7 +1,6 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Server, Database, Code, Robot } from "lucide-react";
+import { Server, Database, Code, Bot } from "lucide-react";
 
 const ProjectsSection = () => {
   const workProjects = [
@@ -17,7 +16,7 @@ const ProjectsSection = () => {
         "LLM Operations (Tracing, LangSmith, LangFuse)",
         "Infrastructure-As-Code (AWS CDK, Typescript)"
       ],
-      icon: Robot
+      icon: Bot
     },
     {
       id: 2,
@@ -46,7 +45,7 @@ const ProjectsSection = () => {
         "ETL Pipelines (AWS Glue, Pandas, PySpark)",
         "Artificial Intelligence (LLM, AWS Bedrock, LangChain)"
       ],
-      icon: Robot
+      icon: Bot
     },
     {
       id: 4,
@@ -147,7 +146,7 @@ const ProjectsSection = () => {
         "Computer Vision (OpenCV)",
         "Edge Computing (Nvidia Jetson, C++)"
       ],
-      icon: Robot
+      icon: Bot
     }
   ];
 
