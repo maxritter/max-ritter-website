@@ -5,17 +5,17 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 0 0% 10%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 13%;
+    --card: 0 0% 12%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 0 0% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 252 87% 73%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 210 100% 59%;
+    --primary-foreground: 0 0% 10%;
 
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
@@ -31,7 +31,7 @@
 
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 252 87% 73%;
+    --ring: 210 100% 59%;
 
     --radius: 0.5rem;
   }
@@ -50,7 +50,7 @@
 
 @layer components {
   .hero-gradient {
-    @apply absolute inset-0 -z-10 bg-gradient-to-b from-background to-background via-primary/10;
+    @apply absolute inset-0 -z-10 bg-gradient-to-b from-background to-background via-primary/5;
   }
   
   .section-padding {
