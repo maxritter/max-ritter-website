@@ -63,22 +63,22 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-background z-40 p-4">
-          <nav className="flex flex-col space-y-4 pt-4">
+          <nav className="flex flex-col space-y-4 pt-4 bg-background">
             <button 
               onClick={() => openBlog()} 
-              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
+              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2 text-left"
             >
               Blog
             </button>
             <button 
               onClick={() => navigateTo('/work')}
-              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
+              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2 text-left"
             >
               Work
             </button>
             <button 
               onClick={() => navigateTo('/skills')}
-              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2"
+              className="text-foreground/80 hover:text-primary transition-colors text-lg py-2 text-left"
             >
               Skills
             </button>

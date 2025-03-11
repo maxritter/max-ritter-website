@@ -38,18 +38,10 @@ const Imprint = () => {
       <Header />
       <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               Imprint
             </h1>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={() => navigate('/')}
-              className="rounded-full"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
           </div>
           
           <div className="prose prose-invert max-w-none">
