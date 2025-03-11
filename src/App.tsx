@@ -8,6 +8,9 @@ import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import Skills from "./pages/Skills";
 import Work from "./pages/Work";
+import Imprint from "./pages/Imprint";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/imprint" element={<Imprint />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

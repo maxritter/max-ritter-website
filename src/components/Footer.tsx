@@ -1,21 +1,38 @@
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-background py-8 border-t border-border">
+    <footer className="bg-background py-6 border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-center items-center text-muted-foreground">
-          <div className="mb-4 md:mb-0 flex space-x-6">
-            <a href="#" className="hover:text-primary transition-colors">Imprint</a>
-            <span>|</span>
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <span>|</span>
-            <a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a>
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} Max Ritter. All rights reserved.
+            </p>
           </div>
-        </div>
-        <div className="mt-4 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Max Ritter. All rights reserved.
+          <div className="flex space-x-6">
+            <Link 
+              to="/imprint" 
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Imprint
+            </Link>
+            <Link 
+              to="/privacy" 
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link 
+              to="/terms" 
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Terms
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

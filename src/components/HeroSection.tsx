@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col items-center mb-12">
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-muted">
+            <div className="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-muted">
               <img 
                 src="/lovable-uploads/3de991a8-d081-4070-884f-69750fa99025.png" 
                 alt="Profile" 
@@ -20,10 +20,10 @@ const HeroSection = () => {
               />
             </div>
             
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+            <h1 className="text-2xl md:text-4xl font-bold mb-4 text-center">
               Hi, I'm Max.
             </h1>
-            <p className="text-2xl md:text-4xl text-primary font-bold mb-6 text-center">
+            <p className="text-xl md:text-3xl text-primary font-bold mb-6 text-center">
               I create Software.
             </p>
             
@@ -49,22 +49,22 @@ const HeroSection = () => {
             </div>
             
             <div className="flex justify-center space-x-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:mail@maxritter.net" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail size={28} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://flowcv.com/resume/hcaa0q4wdd" className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                 <FileText size={28} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/rittermax/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                 <Linkedin size={28} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/maxritter" className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                 <Github size={28} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://dev.to/maxritter" className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                 <span className="font-bold">DEV</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://maxritter.bloggi.co/feed" className="text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
                 <Rss size={28} />
               </a>
             </div>

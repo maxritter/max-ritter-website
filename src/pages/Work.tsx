@@ -1,5 +1,8 @@
 
 import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -23,6 +26,8 @@ const pageVariants = {
 };
 
 const Work = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div 
       className="min-h-screen flex flex-col bg-background"
@@ -33,10 +38,20 @@ const Work = () => {
     >
       <Header />
       <main className="flex-grow pt-16">
-        <div className="container mx-auto px-4 py-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">
-            Selected Work
-          </h1>
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex items-center justify-between mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary">
+              Selected Work
+            </h1>
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={() => navigate('/')}
+              className="rounded-full"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </div>
           <ProjectsSection />
         </div>
       </main>
