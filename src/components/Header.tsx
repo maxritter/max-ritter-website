@@ -57,7 +57,6 @@ const Header = () => {
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="text-xl font-bold text-foreground relative group">
-            <span className="relative z-10">Max</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
         </div>

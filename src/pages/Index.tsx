@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import SEO from "@/components/SEO";
 
 const pageVariants = {
   initial: {
@@ -30,6 +31,14 @@ const Index = () => {
       exit="out"
       variants={pageVariants}
     >
+      <SEO 
+        type="Person"
+        schemaData={{
+          "sameAs": [
+            "https://maxritter.bloggi.co/"
+          ]
+        }}
+      />
       <Header />
       <main className="flex-grow flex items-center justify-center py-0 mt-10">
         <HeroSection />

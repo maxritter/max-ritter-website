@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { Home } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToHomeButton from "@/components/BackToHomeButton";
 
 const pageVariants = {
   initial: {
@@ -35,19 +34,13 @@ const Terms = () => {
       variants={pageVariants}
     >
       <Header />
+      <BackToHomeButton />
       <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col gap-4 mb-4">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               Terms of Service
             </h1>
-            <Button 
-              onClick={() => navigate('/')} 
-              className="self-start flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-foreground transition-all duration-300"
-            >
-              <Home size={18} />
-              <span>Back to Home</span>
-            </Button>
           </div>
           
           <div className="prose prose-invert max-w-none">
