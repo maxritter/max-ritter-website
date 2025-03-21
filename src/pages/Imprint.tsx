@@ -43,8 +43,6 @@ const Imprint = () => {
           </div>
           
           <div className="prose prose-invert max-w-none">
-            <img src="/lovable-uploads/6d10ee04-d3a0-4ed6-ba40-8790eb4aa3c4.png" alt="Imprint" className="mb-6 mx-auto" />
-            
             <h2 className="text-2xl font-bold mb-4">Legal Disclosure</h2>
             <p>
               Information in accordance with Section 5 TMG:
