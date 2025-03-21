@@ -1,69 +1,48 @@
-# Welcome to your Lovable project
 
-## Project info
+# Max Ritter - Personal Website
 
-**URL**: https://lovable.dev/projects/bf9237d3-c5ef-4a92-a13c-b566fada13eb
+## Project Overview
 
-## How can I edit this code?
+This is the source code for my personal website: [maxritter.net](https://maxritter.net)
 
-There are several ways of editing your application.
+## Technologies Used
 
-**Use Lovable**
+This project is built with modern web technologies:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bf9237d3-c5ef-4a92-a13c-b566fada13eb) and start prompting.
+- **Vite**: Fast build tool and development server
+- **TypeScript**: Strongly typed JavaScript
+- **React**: UI component library
+- **React Router**: For client-side routing
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn-ui**: Reusable UI components
+- **Framer Motion**: For animations and transitions
 
-Changes made via Lovable will be committed automatically to this repo.
+## Development
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To start working on this project:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd <PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Step 3: Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The site is deployed using a custom CI/CD pipeline to ensure reliable and consistent deployments.
 
-**Use GitHub Codespaces**
+## Contact
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+If you have any questions about this project, feel free to reach out to me:
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/bf9237d3-c5ef-4a92-a13c-b566fada13eb) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Email: mail@maxritter.net
+- LinkedIn: [rittermax](https://www.linkedin.com/in/rittermax/)
+- GitHub: [maxritter](https://github.com/maxritter)
