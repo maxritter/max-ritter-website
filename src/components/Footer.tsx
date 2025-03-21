@@ -5,30 +5,30 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-background py-6 border-t border-border">
+    <footer className="bg-background py-3 border-t border-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-sm text-muted-foreground">
+          <div className="mb-2 md:mb-0">
+            <p className="text-xs text-muted-foreground">
               © {currentYear} Max Ritter. All rights reserved.
             </p>
           </div>
           <div className="flex space-x-6">
             <Link 
               to="/imprint" 
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
               Imprint
             </Link>
             <Link 
               to="/privacy" 
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
               Privacy Policy
             </Link>
             <Link 
               to="/terms" 
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
               Terms
             </Link>

@@ -7,12 +7,12 @@ const HeroSection = () => {
   const navigate = useNavigate();
   
   return (
-    <section className="min-h-screen flex items-center justify-center relative pt-16">
+    <section className="min-h-screen flex items-center justify-center relative pt-12">
       <div className="hero-gradient"></div>
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="flex flex-col items-center mb-6">
-            <div className="w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden mb-5 border-4 border-muted hover:border-primary transition-all duration-300 transform hover:scale-105">
+          <div className="flex flex-col items-center mb-4">
+            <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden mb-3 border-4 border-muted hover:border-primary transition-all duration-300 transform hover:scale-105">
               <img 
                 src="/lovable-uploads/3de991a8-d081-4070-884f-69750fa99025.png" 
                 alt="Max Ritter Profile" 
@@ -20,15 +20,15 @@ const HeroSection = () => {
               />
             </div>
             
-            <h1 className="text-2xl md:text-4xl font-bold mb-3 text-center">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 text-center">
               Hi, I'm Max.
             </h1>
-            <p className="text-xl md:text-3xl text-primary font-bold mb-5 text-center">
+            <p className="text-xl md:text-3xl text-primary font-bold mb-3 text-center">
               I create Software.
             </p>
             
-            <div className="text-lg text-center mb-5 max-w-2xl">
-              <p className="mb-3">
+            <div className="text-lg text-center mb-4 max-w-2xl">
+              <p className="mb-2">
                 I am a <span className="text-primary">certified Senior IT Freelancer</span> from Germany, supporting my clients remotely in different industries and roles. My focus areas are <span className="text-primary">AWS Cloud, Data Engineering, DevOps Development and Artificial Intelligence</span>.
               </p>
               <p>
@@ -36,7 +36,7 @@ const HeroSection = () => {
               </p>
             </div>
             
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <div className="flex flex-wrap justify-center gap-4 mb-4">
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -63,24 +63,24 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            <div className="flex justify-center space-x-6 mb-3">
+            <div className="flex justify-center space-x-5 mb-2">
               <a href="mailto:mail@maxritter.net" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" aria-label="Email">
-                <Mail size={28} />
+                <Mail size={26} />
               </a>
               <a href="https://flowcv.com/resume/hcaa0q4wdd" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="CV">
-                <FileText size={28} />
+                <FileText size={26} />
               </a>
               <a href="https://www.linkedin.com/in/rittermax/" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin size={28} />
+                <Linkedin size={26} />
               </a>
               <a href="https://github.com/maxritter" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github size={28} />
+                <Github size={26} />
               </a>
               <a href="https://dev.to/maxritter" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="Dev.to">
                 <span className="font-bold">DEV</span>
               </a>
               <a href="https://maxritter.bloggi.co/feed" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="RSS Feed">
-                <Rss size={28} />
+                <Rss size={26} />
               </a>
             </div>
           </div>

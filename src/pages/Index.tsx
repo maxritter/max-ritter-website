@@ -32,7 +32,7 @@ const Index = () => {
       variants={pageVariants}
     >
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow flex flex-col justify-center py-0">
         <HeroSection />
       </main>
       <Footer />
