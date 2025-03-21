@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -32,7 +31,7 @@ const Index = () => {
       variants={pageVariants}
     >
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow flex items-center justify-center py-0 mt-10">
         <HeroSection />
       </main>
       <Footer />

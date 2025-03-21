@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "blowback": {
+      "command": "npx",
+      "args": ["-y", "blowback-context"]
+    }
+  }
+}
