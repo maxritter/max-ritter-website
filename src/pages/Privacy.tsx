@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
@@ -38,17 +37,16 @@ const Privacy = () => {
       <Header />
       <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               Privacy Policy
             </h1>
             <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={() => navigate('/')}
-              className="rounded-full"
+              onClick={() => navigate('/')} 
+              className="self-start md:self-auto flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-foreground transition-all duration-300"
             >
-              <ArrowLeft className="h-5 w-5" />
+              <Home size={18} />
+              <span>Back to Home</span>
             </Button>
           </div>
           

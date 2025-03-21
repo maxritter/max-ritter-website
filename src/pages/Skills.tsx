@@ -1,5 +1,7 @@
 
 import { motion } from "framer-motion";
+import { Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -37,10 +39,17 @@ const Skills = () => {
       <Header />
       <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-8">
-          <div className="mb-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               Skillset
             </h1>
+            <Button 
+              onClick={() => navigate('/')} 
+              className="self-start md:self-auto flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-foreground transition-all duration-300"
+            >
+              <Home size={18} />
+              <span>Back to Home</span>
+            </Button>
           </div>
           <SkillsSection />
         </div>
