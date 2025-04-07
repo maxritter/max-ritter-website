@@ -6,12 +6,12 @@ interface SEOProps {
   canonical?: string;
   pagePath?: string;
   type?: "Person" | "WebPage" | "Article";
-  schemaData?: Record<string, any>;
+  schemaData?: Record<string, unknown>;
 }
 
 const SEO = ({
-  title = "Max Ritter | Senior IT Freelancer | AWS Cloud, Data Engineering & AI",
-  description = "Senior IT Freelancer from Germany, supporting clients in different industries in the areas of AWS Cloud, Data Engineering, Artificial intelligence and DevOps.",
+  title = "Max Ritter | Senior IT Freelancer | AWS Cloud, AI, Data Engineering & DevOps",
+  description = "Experienced IT Freelancer from Germany specializing in AWS Cloud, AI/LLM systems, Data Engineering and DevOps. Helping enterprises build scalable, reliable cloud architectures and advanced AI solutions.",
   canonical = "https://maxritter.net",
   pagePath = "",
   type = "WebPage",
@@ -32,7 +32,21 @@ const SEO = ({
   const personSchema = type === "Person" ? {
     "image": "https://maxritter.net/profile.png",
     "jobTitle": "Senior IT Freelancer",
-    "knowsAbout": ["AWS Cloud", "Data Engineering", "Artificial Intelligence", "DevOps"],
+    "knowsAbout": [
+      "AWS Cloud Architecture", 
+      "LLM & AI Agent Systems", 
+      "Data Engineering", 
+      "DevOps",
+      "Kubernetes",
+      "Infrastructure as Code",
+      "RAG Systems",
+      "Data Lakehouse"
+    ],
+    "hasCredential": [
+      "AWS Certified DevOps Engineer Professional",
+      "AWS Certified Solutions Architect Professional",
+      "AWS Certified Data Analytics Specialty"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "Germany"
@@ -51,6 +65,9 @@ const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={pageUrl} />
+      
+      {/* Keywords */}
+      <meta name="keywords" content="AWS Cloud, LLM Engineering, RAG Architecture, AI Agents, Data Engineering, DevOps, Infrastructure as Code, Kubernetes, Terraform, AWS CDK, LangChain, Data Lakehouse, Freelancer, Germany" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -75,4 +92,4 @@ const SEO = ({
   );
 };
 
-export default SEO; 
+export default SEO;
