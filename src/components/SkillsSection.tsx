@@ -1,11 +1,41 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, GraduationCap, Globe, Briefcase, Cloud, Brain, Database, Code } from "lucide-react";
+import { Award, GraduationCap, Globe, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar } from "lucide-react";
 
 const SkillsSection = () => {
   const skills = {
     degrees: [
-      "B. Sc. Applied Informatics: Automation Engineering and Information Networks (HS Ravensburg-Weingarten, Final Grade: 1.5)",
-      "M. Sc. Computer Engineering: Design and implementation of complex embedded systems (HS Pforzheim, Final Grade: 1.3)"
+      {
+        type: "Master of Science",
+        field: "Computer Engineering",
+        focus: "Design and implementation of complex embedded systems",
+        institution: "HS Pforzheim",
+        grade: "1.3",
+        period: "2018 - 2020",
+        keyTopics: [
+          "Real-time operating systems and embedded Linux",
+          "System on Chip (SoC) design and verification",
+          "Hardware/software co-design methodologies",
+          "Advanced digital signal processing",
+          "Machine learning for embedded applications"
+        ],
+        thesis: "Investigation of neural networks in relation to design, training and usage"
+      },
+      {
+        type: "Bachelor of Science",
+        field: "Applied Informatics",
+        focus: "Automation Engineering and Information Networks",
+        institution: "HS Ravensburg-Weingarten",
+        grade: "1.5",
+        period: "2014 - 2018",
+        keyTopics: [
+          "Network protocols and distributed systems",
+          "Industrial automation and control systems",
+          "Database design and management",
+          "Software engineering principles",
+          "Web technologies and application development"
+        ],
+        thesis: "Development of a low-cost thermal imaging camera"
+      }
     ],
     certifications: [
       "AWS Certified DevOps Engineer Professional",
@@ -140,46 +170,6 @@ const SkillsSection = () => {
           <Card className="card-hover">
             <CardHeader className="flex flex-row items-center gap-4">
               <div className="bg-primary/10 p-3 rounded-full">
-                <GraduationCap className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Degrees</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                {skills.degrees.map((degree, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{degree}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-          
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Certifications</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                {skills.certifications.map((certification, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{certification}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
                 <Code className="w-6 h-6 text-primary" />
               </div>
               <CardTitle>Programming Languages</CardTitle>
@@ -214,6 +204,87 @@ const SkillsSection = () => {
               </ul>
             </CardContent>
           </Card>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-8">
+          <Card className="card-hover">
+            <CardHeader className="flex flex-row items-center gap-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle>Certifications</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {skills.certifications.map((certification, index) => (
+                  <div key={index} className="flex gap-2">
+                    <span className="text-primary">•</span>
+                    <span>{certification}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* Academic background section with columns */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <GraduationCap className="w-6 h-6 text-primary" />
+            <span>Academic Background</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {skills.degrees.map((degree, index) => (
+              <Card key={index} className="card-hover">
+                <CardContent className="pt-6">
+                  <div className="flex flex-col md:flex-row justify-between mb-2">
+                    <h3 className="font-bold text-lg">{degree.type} in {degree.field}</h3>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span>{degree.period}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3 text-muted-foreground">
+                    <span>{degree.institution}</span>
+                    <span className="hidden md:block">•</span>
+                    <span>Final Grade: {degree.grade}</span>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <BookOpen className="w-4 h-4 text-primary" />
+                      <span className="font-medium">Focus Area</span>
+                    </div>
+                    <p className="pl-6">{degree.focus}</p>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <LightbulbIcon className="w-4 h-4 text-primary" />
+                      <span className="font-medium">Key Topics</span>
+                    </div>
+                    <ul className="pl-6 space-y-1">
+                      {degree.keyTopics.map((topic, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-primary">•</span>
+                          <span>{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <GraduationCap className="w-4 h-4 text-primary" />
+                      <span className="font-medium">Thesis</span>
+                    </div>
+                    <p className="pl-6">{degree.thesis}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
