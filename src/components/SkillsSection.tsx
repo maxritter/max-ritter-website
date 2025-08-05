@@ -10,7 +10,7 @@ const SkillsSection = () => {
         focus: "Design and implementation of complex embedded systems",
         institution: "HS Pforzheim",
         grade: "1.3",
-        period: "2018 - 2020",
+        period: "2015 - 2017",
         keyTopics: [
           "Real-time operating systems and embedded Linux",
           "System on Chip (SoC) design and verification",
@@ -26,7 +26,7 @@ const SkillsSection = () => {
         focus: "Automation Engineering and Information Networks",
         institution: "HS Ravensburg-Weingarten",
         grade: "1.5",
-        period: "2014 - 2018",
+        period: "2011 - 2015",
         keyTopics: [
           "Network protocols and distributed systems",
           "Industrial automation and control systems",

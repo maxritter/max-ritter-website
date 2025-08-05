@@ -7,7 +7,20 @@ const ProjectsSection = () => {
     {
       id: 1,
       title: "Cloud (AWS) | AI | DevOps | Data",
-      duration: "11/2024 - present",
+      duration: "08/2025 - present",
+      industry: "Telecommunications",
+      company: "OEW Breitband",
+      description: "Implemented an AWS-based Data Integration & Processing Platform that serves as the central infrastructure for aggregating, transforming, and distributing fiber optic network (Glasfaser) data across the organization's ecosystem",
+      technologies: [
+        "Data Engineering (Glue, PySpark, Athena, S3, RDS, APIs)",
+        "Infrastructure-As-Code (CDK, Typescript)",
+      ],
+      icon: Database
+    },
+    {
+      id: 2,
+      title: "Cloud (AWS) | AI | DevOps | Data",
+      duration: "11/2024 - 07/2025",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
       description: "Architected and implemented an enterprise-grade AI Agent Platform leveraging Retrieval Augmented Generation (RAG) architecture to enhance clinical data insights. Established robust CI/CD pipelines for LLM applications using AWS CDK, significantly reducing deployment times. Implemented comprehensive observability solutions that increased agent reliability across pharmaceutical environments. Designed scalable AI workflows with advanced orchestration that optimized context handling for enterprise data sources.",
@@ -20,7 +33,7 @@ const ProjectsSection = () => {
       icon: Bot
     },
     {
-      id: 2,
+      id: 3,
       title: "Cloud (AWS) | DevOps | Data",
       duration: "07/2024 - 10/2024",
       industry: "E-Commerce / Retail",
@@ -35,7 +48,7 @@ const ProjectsSection = () => {
       icon: Database
     },
     {
-      id: 3,
+      id: 4,
       title: "Cloud (AWS) | AI | DevOps | Data",
       duration: "04/2023 - 06/2024",
       industry: "Pharmaceutical",
@@ -50,7 +63,7 @@ const ProjectsSection = () => {
       icon: Bot
     },
     {
-      id: 4,
+      id: 5,
       title: "Cloud (AWS) | Data | DevOps",
       duration: "03/2022 - 03/2023",
       industry: "Publishing / Media",
@@ -66,7 +79,7 @@ const ProjectsSection = () => {
       icon: Server
     },
     {
-      id: 5,
+      id: 6,
       title: "Cloud (AWS) | AI | DevOps | Data",
       duration: "08/2021 - 02/2022",
       industry: "Automotive",
@@ -82,7 +95,7 @@ const ProjectsSection = () => {
       icon: Database
     },
     {
-      id: 6,
+      id: 7,
       title: "Cloud (Azure) | Data | DevOps | IoT",
       duration: "03/2021 - 07/2021",
       industry: "Climate",
@@ -97,7 +110,7 @@ const ProjectsSection = () => {
       icon: Database
     },
     {
-      id: 7,
+      id: 8,
       title: "Cloud (AWS) | DevOps",
       duration: "08/2020 - 02/2021",
       industry: "E-Commerce / Retail",
@@ -112,7 +125,7 @@ const ProjectsSection = () => {
       icon: Server
     },
     {
-      id: 8,
+      id: 9,
       title: "Cloud (AWS) | Data | AI | DevOps",
       duration: "07/2019 - 07/2020",
       industry: "Mobility",
@@ -127,7 +140,7 @@ const ProjectsSection = () => {
       icon: Code
     },
     {
-      id: 9,
+      id: 10,
       title: "Cloud (AWS) | AI | IoT",
       duration: "03/2018 - 06/2019",
       industry: "Mobility",
@@ -142,7 +155,7 @@ const ProjectsSection = () => {
       icon: Code
     },
     {
-      id: 10,
+      id: 11,
       title: "Cloud (AWS) | AI | IoT",
       duration: "09/2017 - 02/2018",
       industry: "Artificial Intelligence",
