@@ -7,20 +7,22 @@ const ProjectsSection = () => {
     {
       id: 1,
       title: "Cloud (AWS) | AI | DevOps | Data",
-      duration: "08/2025 - present",
+      duration: "07/2025 - present",
       industry: "Telecommunications",
-      company: "OEW Breitband",
-      description: "Implemented an AWS-based Data Integration & Processing Platform that serves as the central infrastructure for aggregating, transforming, and distributing fiber optic network (Glasfaser) data across the organization's ecosystem",
+      company: "OEW Breitband GmbH",
+      description: "Architected and implemented an enterprise-grade data integration and address management platform for Germany's government-subsidized fiber optic expansion program in Baden-Württemberg. Built comprehensive ETL pipelines aggregating multi-source data from CRM and ERP systems into centralized data lake with medallion architecture. Implemented a system for address validation using distributed event-driven architecture with serverless technology on AWS using latest infrastructure-as-code technologies and automated testing pipelines.",
       technologies: [
-        "Data Engineering (Glue, PySpark, Athena, S3, RDS, APIs)",
-        "Infrastructure-As-Code (CDK, Typescript)",
+        "Event-Driven Architecture (AWS EventBridge, Lambda, Step Functions)",
+        "Data Engineering (AWS Glue, RDS PostgreSQL, S3 Data Lake, Parquet)",
+        "Infrastructure-as-Code (AWS CDK with Typescript, Terraform, CICD)",
+        "Observability & Testing (CloudWatch, Unit/Integration/E2E Testing)"
       ],
       icon: Database
     },
     {
       id: 2,
       title: "Cloud (AWS) | AI | DevOps | Data",
-      duration: "11/2024 - 07/2025",
+      duration: "11/2024 - 06/2025",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
       description: "Architected and implemented an enterprise-grade AI Agent Platform leveraging Retrieval Augmented Generation (RAG) architecture to enhance clinical data insights. Established robust CI/CD pipelines for LLM applications using AWS CDK, significantly reducing deployment times. Implemented comprehensive observability solutions that increased agent reliability across pharmaceutical environments. Designed scalable AI workflows with advanced orchestration that optimized context handling for enterprise data sources.",
