@@ -8,32 +8,42 @@
     --background: 0 0% 10%;
     --foreground: 210 40% 98%;
 
-    --card: 0 0% 12%;
+    --card: 220 25% 14%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 10%;
+    --popover: 220 25% 14%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 100% 59%;
     --primary-foreground: 0 0% 10%;
+    --primary-glow: 210 100% 70%;
 
-    --secondary: 217 33% 17%;
+    --secondary: 220 30% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 17%;
+    --muted: 220 20% 18%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 17%;
+    --accent: 210 95% 50%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
+    --border: 220 20% 22%;
+    --input: 220 20% 18%;
     --ring: 210 100% 59%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 59% / 0.1), hsl(210 100% 70% / 0.05));
+    --gradient-card: linear-gradient(180deg, hsl(220 25% 16%), hsl(220 25% 14%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(210 100% 59% / 0.15);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 8px 30px hsl(210 100% 59% / 0.2);
   }
 }
 
@@ -54,10 +64,30 @@
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
+    @apply transition-all duration-500 hover:-translate-y-2;
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .skill-badge {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40;
+  }
+  
+  .section-header {
+    @apply flex items-center gap-3 mb-8 pb-4 border-b border-border/50;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text;
   }
 }

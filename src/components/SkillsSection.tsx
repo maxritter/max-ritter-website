@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, GraduationCap, Globe, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Award, GraduationCap, Globe, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar, Sparkles } from "lucide-react";
 
 const SkillsSection = () => {
   const skills = {
@@ -105,186 +106,210 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="section-padding bg-muted/10">
+    <section className="section-padding">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Cloud className="w-6 h-6 text-primary" />
+        {/* Core Expertise */}
+        <div className="section-header">
+          <Sparkles className="w-8 h-8 text-primary" />
+          <h2 className="section-title">Core Expertise</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                  <Cloud className="w-7 h-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Cloud (AWS)</CardTitle>
               </div>
-              <CardTitle>Cloud (AWS)</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.cloudAWS.map((skill, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{skill}</span>
-                  </li>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {skill}
+                  </Badge>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
           
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Brain className="w-6 h-6 text-primary" />
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                  <Brain className="w-7 h-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl">AI (LLMs & Agents)</CardTitle>
               </div>
-              <CardTitle>AI (LLMs & Agents)</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.ai.map((skill, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{skill}</span>
-                  </li>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {skill}
+                  </Badge>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
           
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Database className="w-6 h-6 text-primary" />
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                  <Database className="w-7 h-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Data & DevOps</CardTitle>
               </div>
-              <CardTitle>Data & DevOps</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.dataDevOps.map((skill, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{skill}</span>
-                  </li>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {skill}
+                  </Badge>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Code className="w-6 h-6 text-primary" />
+        {/* Technical Skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
+                  <Code className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>Programming Languages</CardTitle>
               </div>
-              <CardTitle>Programming Languages</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.languages.map((language, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{language}</span>
-                  </li>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {language}
+                  </Badge>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
           
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Briefcase className="w-6 h-6 text-primary" />
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
+                  <Briefcase className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>Professional Roles</CardTitle>
               </div>
-              <CardTitle>Roles</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.roles.map((role, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{role}</span>
-                  </li>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {role}
+                  </Badge>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-8">
-          <Card className="card-hover">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Award className="w-6 h-6 text-primary" />
+        {/* Certifications */}
+        <div className="mb-16">
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
+                  <Award className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>Certifications</CardTitle>
               </div>
-              <CardTitle>Certifications</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
                 {skills.certifications.map((certification, index) => (
-                  <div key={index} className="flex gap-2">
-                    <span className="text-primary">•</span>
-                    <span>{certification}</span>
-                  </div>
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {certification}
+                  </Badge>
                 ))}
               </div>
             </CardContent>
           </Card>
         </div>
         
-        {/* Academic background section with columns */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            <span>Academic Background</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {skills.degrees.map((degree, index) => (
-              <Card key={index} className="card-hover">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col md:flex-row justify-between mb-2">
-                    <h3 className="font-bold text-lg">{degree.type} in {degree.field}</h3>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span>{degree.period}</span>
-                    </div>
+        {/* Academic Background */}
+        <div className="section-header">
+          <GraduationCap className="w-8 h-8 text-primary" />
+          <h2 className="section-title">Academic Background</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skills.degrees.map((degree, index) => (
+            <Card key={index} className="card-hover gradient-card border-border/50 overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="pt-6 relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="font-bold text-xl mb-1 text-primary">{degree.type}</h3>
+                    <p className="text-lg font-semibold mb-2">{degree.field}</p>
                   </div>
-                  
-                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3 text-muted-foreground">
-                    <span>{degree.institution}</span>
-                    <span className="hidden md:block">•</span>
-                    <span>Final Grade: {degree.grade}</span>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg">
+                    <Calendar className="w-4 h-4" />
+                    <span>{degree.period}</span>
                   </div>
-                  
-                  <div className="mb-4">
+                </div>
+                
+                <div className="flex items-center gap-4 mb-4 text-sm">
+                  <span className="text-muted-foreground">{degree.institution}</span>
+                  <span className="text-muted-foreground">•</span>
+                  <span className="font-medium text-primary">Grade: {degree.grade}</span>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-muted/20 rounded-lg p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <BookOpen className="w-4 h-4 text-primary" />
-                      <span className="font-medium">Focus Area</span>
+                      <span className="font-semibold text-sm">Focus Area</span>
                     </div>
-                    <p className="pl-6">{degree.focus}</p>
+                    <p className="text-sm text-muted-foreground">{degree.focus}</p>
                   </div>
                   
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
+                  <div className="bg-muted/20 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-3">
                       <LightbulbIcon className="w-4 h-4 text-primary" />
-                      <span className="font-medium">Key Topics</span>
+                      <span className="font-semibold text-sm">Key Topics</span>
                     </div>
-                    <ul className="pl-6 space-y-1">
+                    <div className="flex flex-wrap gap-2">
                       {degree.keyTopics.map((topic, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-primary">•</span>
-                          <span>{topic}</span>
-                        </li>
+                        <Badge key={i} variant="secondary" className="text-xs bg-secondary/50">
+                          {topic}
+                        </Badge>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                   
-                  <div>
+                  <div className="bg-muted/20 rounded-lg p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <GraduationCap className="w-4 h-4 text-primary" />
-                      <span className="font-medium">Thesis</span>
+                      <span className="font-semibold text-sm">Thesis</span>
                     </div>
-                    <p className="pl-6">{degree.thesis}</p>
+                    <p className="text-sm text-muted-foreground italic">"{degree.thesis}"</p>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
