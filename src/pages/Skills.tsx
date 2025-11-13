@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SkillsSection from "@/components/SkillsSection";
 import SEO from "@/components/SEO";
-import PageHeader from "@/components/PageHeader";
+import BackToHomeButton from "@/components/BackToHomeButton";
 import { pageVariants } from "@/utils/animations";
-import { Sparkles } from "lucide-react";
 
 const Skills = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div 
       className="min-h-screen flex flex-col bg-background"
@@ -22,13 +24,16 @@ const Skills = () => {
         pagePath="skills"
       />
       <Header />
-      <PageHeader 
-        title="Skillset" 
-        subtitle="My technical expertise across cloud, AI, data engineering, and software development"
-        icon={<Sparkles className="w-8 h-8 text-primary" />}
-      />
-      <main className="flex-grow">
-        <SkillsSection />
+      <BackToHomeButton />
+      <main className="flex-grow pt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col gap-4 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary">
+              Skillset
+            </h1>
+          </div>
+          <SkillsSection />
+        </div>
       </main>
       <Footer />
     </motion.div>
