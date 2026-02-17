@@ -1,6 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, GraduationCap, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" },
+  }),
+};
 
 const SkillsSection = () => {
   const skills = {
@@ -106,127 +116,88 @@ const SkillsSection = () => {
     ]
   };
 
+  const expertiseCards = [
+    { title: "Agentic Engineering", icon: Brain, skills: skills.agenticEngineering },
+    { title: "Cloud (AWS)", icon: Cloud, skills: skills.cloudAWS },
+    { title: "Data & DevOps", icon: Database, skills: skills.dataDevOps },
+  ];
+
+  const infoCards = [
+    { title: "Programming Languages", icon: Code, skills: skills.languages },
+    { title: "Professional Roles", icon: Briefcase, skills: skills.roles },
+  ];
+
   return (
     <section className="section-padding">
       <div className="container mx-auto px-4">
         {/* Core Expertise */}
-        <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          className="section-header"
+        >
           <Sparkles className="w-8 h-8 text-primary" />
           <h2 className="section-title">Core Expertise</h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                  <Brain className="w-7 h-7 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Agentic Engineering</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.agenticEngineering.map((skill, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                  <Cloud className="w-7 h-7 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Cloud (AWS)</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.cloudAWS.map((skill, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                  <Database className="w-7 h-7 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Data & DevOps</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.dataDevOps.map((skill, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          {expertiseCards.map((card, i) => (
+            <motion.div key={card.title} custom={i} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
+              <Card className="card-hover gradient-card border-border/50 overflow-hidden group h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardHeader className="relative">
+                  <div className="flex items-center gap-4 mb-2">
+                    <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                      <card.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">{card.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="flex flex-wrap gap-2">
+                    {card.skills.map((skill, index) => (
+                      <Badge key={index} variant="outline" className="skill-badge">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
         
         {/* Technical Skills */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
-                  <Code className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle>Programming Languages</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.languages.map((language, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {language}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
-                  <Briefcase className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle>Professional Roles</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.roles.map((role, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {role}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          {infoCards.map((card, i) => (
+            <motion.div key={card.title} custom={i + 3} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
+              <Card className="card-hover gradient-card border-border/50 overflow-hidden group h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardHeader className="relative">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-500">
+                      <card.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle>{card.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="flex flex-wrap gap-2">
+                    {card.skills.map((skill, index) => (
+                      <Badge key={index} variant="outline" className="skill-badge">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
         
         {/* Certifications */}
-        <div className="mb-16">
+        <motion.div className="mb-16" custom={5} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
           <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <CardHeader className="relative">
@@ -247,69 +218,77 @@ const SkillsSection = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
         
         {/* Academic Background */}
-        <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, x: -16 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="section-header"
+        >
           <GraduationCap className="w-8 h-8 text-primary" />
           <h2 className="section-title">Academic Background</h2>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.degrees.map((degree, index) => (
-            <Card key={index} className="card-hover gradient-card border-border/50 overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="pt-6 relative">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <h3 className="font-bold text-xl mb-1 text-primary">{degree.type}</h3>
-                    <p className="text-lg font-semibold mb-2">{degree.field}</p>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg">
-                    <Calendar className="w-4 h-4" />
-                    <span>{degree.period}</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4 mb-4 text-sm">
-                  <span className="text-muted-foreground">{degree.institution}</span>
-                  <span className="text-muted-foreground">•</span>
-                  <span className="font-medium text-primary">Grade: {degree.grade}</span>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="bg-muted/20 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <BookOpen className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-sm">Focus Area</span>
+            <motion.div key={index} custom={index + 6} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
+              <Card className="card-hover gradient-card border-border/50 overflow-hidden group h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="pt-6 relative">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-xl mb-1 text-primary">{degree.type}</h3>
+                      <p className="text-lg font-semibold mb-2">{degree.field}</p>
                     </div>
-                    <p className="text-sm text-muted-foreground">{degree.focus}</p>
-                  </div>
-                  
-                  <div className="bg-muted/20 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <LightbulbIcon className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-sm">Key Topics</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {degree.keyTopics.map((topic, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs bg-secondary/50">
-                          {topic}
-                        </Badge>
-                      ))}
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg">
+                      <Calendar className="w-4 h-4" />
+                      <span>{degree.period}</span>
                     </div>
                   </div>
                   
-                  <div className="bg-muted/20 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <GraduationCap className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-sm">Thesis</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground italic">"{degree.thesis}"</p>
+                  <div className="flex items-center gap-4 mb-4 text-sm">
+                    <span className="text-muted-foreground">{degree.institution}</span>
+                    <span className="text-muted-foreground">•</span>
+                    <span className="font-medium text-primary">Grade: {degree.grade}</span>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-muted/20 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <BookOpen className="w-4 h-4 text-primary" />
+                        <span className="font-semibold text-sm">Focus Area</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{degree.focus}</p>
+                    </div>
+                    
+                    <div className="bg-muted/20 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        <LightbulbIcon className="w-4 h-4 text-primary" />
+                        <span className="font-semibold text-sm">Key Topics</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {degree.keyTopics.map((topic, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs bg-secondary/50">
+                            {topic}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="bg-muted/20 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="w-4 h-4 text-primary" />
+                        <span className="font-semibold text-sm">Thesis</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground italic">"{degree.thesis}"</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
