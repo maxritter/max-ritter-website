@@ -1,6 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Server, Database, Code, Bot, Briefcase, Calendar, Building2 } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.06, duration: 0.5, ease: "easeOut" },
+  }),
+};
 
 const ProjectsSection = () => {
   const workProjects = [
@@ -193,54 +203,63 @@ const ProjectsSection = () => {
     <section className="section-padding">
       <div className="container mx-auto px-4">
         <div className="space-y-6">
-          {workProjects.map((project) => (
-            <Card key={project.id} className="card-hover gradient-card border-border/50 overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex flex-col md:flex-row relative">
-                <div className="p-6 md:w-24 flex justify-center items-start md:border-r border-border/30">
-                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                    <project.icon className="h-8 w-8 text-primary" />
+          {workProjects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              custom={i}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+            >
+              <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="flex flex-col md:flex-row relative">
+                  <div className="p-6 md:w-24 flex justify-center items-start md:border-r border-border/30">
+                    <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                      <project.icon className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <div className="flex-1 p-6">
+                    <CardHeader className="p-0 mb-4">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 mb-3">
+                        <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg whitespace-nowrap">
+                          <Calendar className="w-4 h-4" />
+                          <span>{project.duration}</span>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-3 text-sm">
+                        <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
+                          <Building2 className="w-4 h-4 text-primary" />
+                          <span className="font-medium">{project.industry}</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
+                          <Briefcase className="w-4 h-4 text-primary" />
+                          <span className="font-medium">{project.company}</span>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="mb-5 text-foreground/90 leading-relaxed">{project.description}</p>
+                      <div className="bg-muted/20 rounded-lg p-4">
+                        <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                          <Code className="w-4 h-4 text-primary" />
+                          Technologies
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, index) => (
+                            <Badge key={index} variant="outline" className="skill-badge text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
                   </div>
                 </div>
-                <div className="flex-1 p-6">
-                  <CardHeader className="p-0 mb-4">
-                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-3 mb-3">
-                      <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg whitespace-nowrap">
-                        <Calendar className="w-4 h-4" />
-                        <span>{project.duration}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-3 text-sm">
-                      <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
-                        <Building2 className="w-4 h-4 text-primary" />
-                        <span className="font-medium">{project.industry}</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
-                        <Briefcase className="w-4 h-4 text-primary" />
-                        <span className="font-medium">{project.company}</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <p className="mb-5 text-foreground/90 leading-relaxed">{project.description}</p>
-                    <div className="bg-muted/20 rounded-lg p-4">
-                      <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                        <Code className="w-4 h-4 text-primary" />
-                        Technologies
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, index) => (
-                          <Badge key={index} variant="outline" className="skill-badge text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
