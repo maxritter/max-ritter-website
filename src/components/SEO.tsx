@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Max Ritter | Senior IT Freelancer | AWS Cloud, AI, Data Engineering & DevOps",
-  description = "Experienced IT Freelancer from Germany specializing in AWS Cloud, AI/LLM systems, Data Engineering and DevOps. Helping enterprises build scalable, reliable cloud architectures and advanced AI solutions.",
+  title = "Max Ritter | Senior IT Freelancer | Agentic Engineering, AWS Cloud, Data Engineering & DevOps",
+  description = "Experienced IT Freelancer from Germany specializing in Agentic Engineering, AWS Cloud, Data Engineering and DevOps. Helping enterprises build scalable, reliable cloud architectures and advanced AI solutions.",
   canonical = "https://maxritter.net",
   pagePath = "",
   type = "WebPage",
@@ -19,7 +19,6 @@ const SEO = ({
 }: SEOProps) => {
   const pageUrl = pagePath ? `${canonical}/${pagePath}` : canonical;
   
-  // Default schema.org data
   const defaultSchemaData = {
     "@context": "https://schema.org",
     "@type": type,
@@ -28,18 +27,19 @@ const SEO = ({
     "url": pageUrl,
   };
   
-  // Person schema for homepage
   const personSchema = type === "Person" ? {
     "image": "https://maxritter.net/profile.png",
     "jobTitle": "Senior IT Freelancer",
     "knowsAbout": [
-      "AWS Cloud Architecture", 
-      "LLM & AI Agent Systems", 
-      "Data Engineering", 
+      "Agentic Engineering",
+      "AWS Cloud Architecture",
+      "Data Engineering",
       "DevOps",
+      "LLM & AI Agent Systems",
       "Kubernetes",
       "Infrastructure as Code",
       "RAG Systems",
+      "Context Engineering",
       "Data Lakehouse"
     ],
     "hasCredential": [
@@ -53,7 +53,6 @@ const SEO = ({
     }
   } : {};
   
-  // Combine default schema with custom schema and type-specific schema
   const fullSchemaData = {
     ...defaultSchemaData,
     ...personSchema,
@@ -67,7 +66,7 @@ const SEO = ({
       <link rel="canonical" href={pageUrl} />
       
       {/* Keywords */}
-      <meta name="keywords" content="AWS Cloud, LLM Engineering, RAG Architecture, AI Agents, Data Engineering, DevOps, Infrastructure as Code, Kubernetes, Terraform, AWS CDK, LangChain, Data Lakehouse, Freelancer, Germany" />
+      <meta name="keywords" content="Agentic Engineering, AWS Cloud, Data Engineering, DevOps, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Infrastructure as Code, Kubernetes, Terraform, AWS CDK, LangChain, Claude Code, MCP, Data Lakehouse, Freelancer, Germany" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

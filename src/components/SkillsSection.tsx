@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, GraduationCap, Globe, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar, Sparkles } from "lucide-react";
+import { Award, GraduationCap, Briefcase, Cloud, Brain, Database, Code, BookOpen, LightbulbIcon, Calendar, Sparkles } from "lucide-react";
 
 const SkillsSection = () => {
   const skills = {
@@ -61,11 +61,12 @@ const SkillsSection = () => {
       "Bash / Shell"
     ],
     roles: [
-      "DevOps Engineer",
+      "Agentic Engineer",
+      "AI/LLM Engineer",
       "Cloud Engineer",
       "Data Engineer",
+      "DevOps Engineer",
       "Machine Learning Engineer",
-      "AI/LLM Engineer",
       "Software Architect",
       "Team Lead",
       "Chief Technology Officer"
@@ -81,16 +82,16 @@ const SkillsSection = () => {
       "Analytics & Data Lakes",
       "Networking & Identity"
     ],
-    ai: [
+    agenticEngineering: [
+      "Agentic Workflows & Loops",
+      "Claude Code & MCP",
       "AWS Bedrock & Foundation Models",
       "LangChain & LangGraph",
       "RAG Architecture",
       "Vector Databases & Embeddings",
-      "Context Optimization",
-      "Evaluation & Testing",
+      "Context Engineering",
       "Prompt Engineering",
-      "Model Fine-tuning",
-      "LLM Observability"
+      "Evaluation & Testing"
     ],
     dataDevOps: [
       "Data Pipelines & ETL",
@@ -113,8 +114,29 @@ const SkillsSection = () => {
           <Sparkles className="w-8 h-8 text-primary" />
           <h2 className="section-title">Core Expertise</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardHeader className="relative">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                  <Brain className="w-7 h-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Agentic Engineering</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="relative">
+              <div className="flex flex-wrap gap-2">
+                {skills.agenticEngineering.map((skill, index) => (
+                  <Badge key={index} variant="outline" className="skill-badge">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <CardHeader className="relative">
@@ -135,28 +157,7 @@ const SkillsSection = () => {
               </div>
             </CardContent>
           </Card>
-          
-          <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                  <Brain className="w-7 h-7 text-primary" />
-                </div>
-                <CardTitle className="text-xl">AI (LLMs & Agents)</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="relative">
-              <div className="flex flex-wrap gap-2">
-                {skills.ai.map((skill, index) => (
-                  <Badge key={index} variant="outline" className="skill-badge">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          
+
           <Card className="card-hover gradient-card border-border/50 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <CardHeader className="relative">

@@ -28,7 +28,7 @@ const HeroSection = () => {
             
             <div className="text-lg text-center mb-5 max-w-2xl">
               <p className="mb-3">
-                I am a <span className="text-primary">certified Senior IT Freelancer</span> from Germany, supporting my clients remotely in different industries and roles. My focus areas are <span className="text-primary">AWS Cloud, Data Engineering, DevOps Development and Artificial Intelligence</span>.
+                I am a <span className="text-primary">certified Senior IT Freelancer</span> from Germany, supporting my clients remotely in different industries and roles. My focus areas are <span className="text-primary">Agentic Engineering, AWS Cloud, Data Engineering, and DevOps & Development</span>.
               </p>
               <p>
                 My working modes are <span className="text-primary">high-level and hands-on</span>, combined with an agile mindset to deliver <span className="text-primary">high-quality, state-of-the-art solutions</span>.
