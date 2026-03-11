@@ -16,7 +16,7 @@ const ProjectsSection = () => {
   const workProjects = [
     {
       id: 1,
-      title: "AI | Data | Cloud (GCP) | DevOps",
+      title: "Senior AI Technical Advisor (Freelancer)",
       duration: "02/2026 - present",
       industry: "Agentic Platform",
       company: "Dialpad",
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: "AI | Data | Cloud (AWS) | DevOps",
+      title: "Senior Data and Cloud Architect (Freelancer)",
       duration: "07/2025 - 01/2026",
       industry: "Telecommunications",
       company: "OEW Breitband GmbH",
@@ -46,7 +46,7 @@ const ProjectsSection = () => {
     },
     {
       id: 3,
-      title: "AI | Data | Cloud (AWS) | DevOps",
+      title: "Senior AI, Data and Cloud Architect (Freelancer)",
       duration: "11/2024 - 06/2025",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
@@ -61,7 +61,7 @@ const ProjectsSection = () => {
     },
     {
       id: 4,
-      title: "Data | Cloud (AWS) | DevOps",
+      title: "Senior Cloud, Data and DevOps Engineer (Freelancer)",
       duration: "07/2024 - 10/2024",
       industry: "E-Commerce / Retail",
       company: "Marc O'Polo",
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
     },
     {
       id: 5,
-      title: "AI | Data | Cloud (AWS) | DevOps",
+      title: "Senior Cloud, Data and DevOps Engineer (Freelancer)",
       duration: "04/2023 - 06/2024",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
@@ -91,7 +91,7 @@ const ProjectsSection = () => {
     },
     {
       id: 6,
-      title: "Data | Cloud (AWS) | DevOps",
+      title: "Senior Cloud, Data and DevOps Engineer (Freelancer)",
       duration: "03/2022 - 03/2023",
       industry: "Publishing / Media",
       company: "Hubert Burda Media",
@@ -107,7 +107,7 @@ const ProjectsSection = () => {
     },
     {
       id: 7,
-      title: "AI | Data | Cloud (AWS) | DevOps",
+      title: "Senior AI, Data and Cloud Engineer (Freelancer)",
       duration: "08/2021 - 02/2022",
       industry: "Automotive",
       company: "Porsche",
@@ -123,7 +123,7 @@ const ProjectsSection = () => {
     },
     {
       id: 8,
-      title: "Data | Cloud (Azure) | DevOps | IoT",
+      title: "Senior Cloud, Data and DevOps Engineer (Consultant)",
       duration: "03/2021 - 07/2021",
       industry: "Energy / Climate",
       company: "Climeworks",
@@ -138,7 +138,7 @@ const ProjectsSection = () => {
     },
     {
       id: 9,
-      title: "Data | Cloud (AWS) | DevOps",
+      title: "Senior Cloud, Data and DevOps Engineer (Consultant)",
       duration: "08/2020 - 02/2021",
       industry: "E-Commerce / Retail",
       company: "Marc O'Polo",
@@ -153,7 +153,7 @@ const ProjectsSection = () => {
     },
     {
       id: 10,
-      title: "AI | Data | Cloud (AWS) | DevOps",
+      title: "Chief Technology Officer (CTO and Co-Founder)",
       duration: "07/2019 - 07/2020",
       industry: "Mobility",
       company: "Wemolo",
@@ -168,7 +168,7 @@ const ProjectsSection = () => {
     },
     {
       id: 11,
-      title: "AI | Cloud (AWS) | IoT",
+      title: "Head of Embedded Systems and IoT Engineer (Employee)",
       duration: "03/2018 - 06/2019",
       industry: "Mobility",
       company: "ParkHere",
@@ -183,7 +183,7 @@ const ProjectsSection = () => {
     },
     {
       id: 12,
-      title: "AI | Cloud (AWS) | IoT",
+      title: "Machine Learning, Computer Vision and IoT Engineer (Employee)",
       duration: "09/2017 - 02/2018",
       industry: "Artificial Intelligence",
       company: "Bleenco",
