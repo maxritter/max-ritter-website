@@ -49,15 +49,15 @@ const HeroSection = () => {
               Hi, I'm Max.
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl md:text-3xl text-primary font-bold mb-5 text-center">
-              I create Software.
+              Advisor | Architect | Engineer
             </motion.p>
-            
+
             <motion.div variants={fadeUp} className="text-lg text-center mb-5 max-w-2xl">
               <p className="mb-3">
-                I am a <span className="text-primary">certified Senior IT Freelancer</span> from Germany, supporting my clients remotely in different industries and roles. My focus areas are <span className="text-primary">Agentic Engineering, AWS Cloud, Data Engineering, and DevOps & Development</span>.
+                I am a <span className="text-primary">Senior IT Freelancer</span> from Germany, helping enterprises adopt <span className="text-primary">Agentic Engineering, AI-driven architectures, and modern cloud platforms</span>. My approach is both <span className="text-primary">high-level and hands-on</span> — I advise, I architect, and I engineer.
               </p>
               <p>
-                My working modes are <span className="text-primary">high-level and hands-on</span>, combined with an agile mindset to deliver <span className="text-primary">high-quality, state-of-the-art solutions</span>.
+                As a <span className="text-primary">T-shaped professional</span> with broad expertise across cloud, data, and AI — and deep specialization in agentic systems — I bridge the gap between <span className="text-primary">strategic vision and technical execution</span>.
               </p>
             </motion.div>
             

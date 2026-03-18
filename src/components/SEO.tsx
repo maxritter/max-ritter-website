@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Max Ritter | Senior IT Freelancer | Agentic Engineering, AWS Cloud, Data Engineering & DevOps",
-  description = "Experienced IT Freelancer from Germany specializing in Agentic Engineering, AWS Cloud, Data Engineering and DevOps. Helping enterprises build scalable, reliable cloud architectures and advanced AI solutions.",
+  title = "Max Ritter | IT Freelancer - Advisor | Architect | Engineer | Agentic Engineering & Cloud",
+  description = "Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Specializing in Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
   canonical = "https://maxritter.net",
   pagePath = "",
   type = "WebPage",
@@ -29,18 +29,18 @@ const SEO = ({
   
   const personSchema = type === "Person" ? {
     "image": "https://maxritter.net/profile.png",
-    "jobTitle": "Senior IT Freelancer",
+    "jobTitle": "IT Freelancer - Advisor | Architect | Engineer",
     "knowsAbout": [
+      "AI Technical Advisory",
       "Agentic Engineering",
+      "Solution Architecture",
       "AWS Cloud Architecture",
-      "Data Engineering",
-      "DevOps",
-      "LLM & AI Agent Systems",
-      "Kubernetes",
-      "Infrastructure as Code",
-      "RAG Systems",
+      "AI Agent Systems & LLMs",
       "Context Engineering",
-      "Data Lakehouse"
+      "RAG Systems",
+      "Engineering Enablement",
+      "Data Engineering",
+      "Infrastructure as Code"
     ],
     "hasCredential": [
       "AWS Certified DevOps Engineer Professional",
@@ -66,7 +66,7 @@ const SEO = ({
       <link rel="canonical" href={pageUrl} />
       
       {/* Keywords */}
-      <meta name="keywords" content="Agentic Engineering, AWS Cloud, Data Engineering, DevOps, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Infrastructure as Code, Kubernetes, Terraform, AWS CDK, LangChain, Claude Code, MCP, Data Lakehouse, Freelancer, Germany" />
+      <meta name="keywords" content="AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, MCP, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

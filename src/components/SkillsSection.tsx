@@ -71,13 +71,13 @@ const SkillsSection = () => {
       "Bash / Shell"
     ],
     roles: [
+      "AI Technical Advisor",
+      "Solution Architect",
       "Agentic Engineer",
       "AI/LLM Engineer",
-      "Cloud Engineer",
+      "Cloud Architect",
       "Data Engineer",
       "DevOps Engineer",
-      "Machine Learning Engineer",
-      "Software Architect",
       "Team Lead",
       "Chief Technology Officer"
     ],
