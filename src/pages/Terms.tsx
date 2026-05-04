@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToHomeButton from "@/components/BackToHomeButton";
+import SEO from "@/components/SEO";
 
 const pageVariants = {
   initial: {
@@ -33,6 +34,11 @@ const Terms = () => {
       exit="out"
       variants={pageVariants}
     >
+      <SEO
+        title="Terms of Service | Max Ritter"
+        description="Terms of service for maxritter.net — usage conditions, liability, and copyright information."
+        pagePath="terms"
+      />
       <Header />
       <BackToHomeButton />
       <main className="flex-grow pt-16">

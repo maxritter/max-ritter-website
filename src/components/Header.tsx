@@ -56,34 +56,40 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="text-xl font-bold text-foreground relative group">
+          <Link to="/" aria-label="Max Ritter — Home" className="text-xl font-bold text-foreground relative group">
+            <span aria-hidden="true">MR</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <button 
-            onClick={() => navigateTo('/work')} 
+          <Link
+            to="/work"
+            onClick={closeMenu}
             className="text-foreground/80 hover:text-primary transition-colors relative group"
           >
             <span>Work</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-          </button>
-          <button 
-            onClick={() => navigateTo('/skills')} 
+          </Link>
+          <Link
+            to="/skills"
+            onClick={closeMenu}
             className="text-foreground/80 hover:text-primary transition-colors relative group"
           >
             <span>Skills</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-          </button>
-          <button 
-            onClick={() => openBlog()} 
+          </Link>
+          <a
+            href="https://maxritter.bloggi.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
             className="text-foreground/80 hover:text-primary transition-colors relative group"
           >
             <span>Blog</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-          </button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}

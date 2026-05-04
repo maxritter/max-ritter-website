@@ -7,53 +7,30 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Max Ritter | IT Freelancer - Advisor | Architect | Engineer | Agentic Engineering & Cloud</title>
-    <meta name="description" content="Max Ritter - Senior IT Freelancer from Germany. Advising, architecting, and engineering AI-driven solutions. Specializing in Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement." />
     <meta name="author" content="Max Ritter" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Max Ritter | IT Freelancer - Advisor | Architect | Engineer" />
-    <meta property="og:description" content="Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement." />
-    <meta property="og:image" content="https://maxritter.net/logo.jpg" />
-    <meta property="og:url" content="https://maxritter.net" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Max Ritter" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Max Ritter | IT Freelancer - Advisor | Architect | Engineer" />
-    <meta name="twitter:description" content="Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement." />
-    <meta name="twitter:image" content="https://maxritter.net/logo.jpg" />
-    
-    <meta name="keywords" content="Max Ritter, IT Freelancer, AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, Claude Code, MCP, Context Engineering, Data Engineering, Germany" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://maxritter.net" />
-    
+    <!-- Default title/description; per-page overrides come from react-helmet-async -->
+    <title>Max Ritter | IT Freelancer - Advisor | Architect | Engineer | Agentic Engineering & Cloud</title>
+
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
-    
-    <!-- JSON-LD for structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Max Ritter",
-      "url": "https://maxritter.net",
-      "image": "https://maxritter.net/profile.png",
-      "jobTitle": "IT Freelancer - Advisor | Architect | Engineer",
-      "description": "Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Specializing in Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
-      "knowsAbout": ["AI Technical Advisory", "Agentic Engineering", "Solution Architecture", "AWS Cloud Architecture", "AI Enablement", "Context Engineering", "Data Engineering"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "Germany"
-      }
-    }
-    </script>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="38e8e2ed-2570-4034-8546-4a60c7b18ab0"></script>
+
+    <!-- Preconnect to analytics (avoids late DNS/TCP/TLS) -->
+    <link rel="preconnect" href="https://cloud.umami.is" crossorigin />
+    <link rel="dns-prefetch" href="https://cloud.umami.is" />
+    <link rel="preconnect" href="https://analytics.ahrefs.com" crossorigin />
+    <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+
+    <!-- Preload LCP image (hero profile picture) -->
+    <link rel="preload" as="image" href="/profile.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Ahrefs Analytics -->
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="z+ZckeCmmFW1kMjAfQEXLA" async></script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="38e8e2ed-2570-4034-8546-4a60c7b18ab0"></script>
   </body>
 </html>

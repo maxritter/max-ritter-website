@@ -1,0 +1,5 @@
+# Force canonical host (apex -> www) in a single hop
+https://maxritter.net/*    https://www.maxritter.net/:splat    301!
+
+# SPA fallback: serve index.html for any route the client router handles
+/*    /index.html    200

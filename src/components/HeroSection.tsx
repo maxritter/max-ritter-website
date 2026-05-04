@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FileText, Github, Linkedin, Mail, Rss } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const container = {
@@ -21,8 +21,6 @@ const scaleIn = {
 };
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="flex items-center justify-center relative pt-4">
       <div className="hero-gradient"></div>
@@ -38,11 +36,18 @@ const HeroSection = () => {
               variants={scaleIn}
               className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden mb-5 border-4 border-muted hover:border-primary transition-all duration-300 transform hover:scale-105"
             >
-              <img
-                src="/profile.png"
-                alt="Max Ritter Profile"
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source srcSet="/profile.webp" type="image/webp" />
+                <img
+                  src="/profile.png"
+                  alt="Max Ritter — Senior IT Freelancer from Germany"
+                  width={288}
+                  height={288}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-2xl md:text-4xl font-bold mb-4 text-center">
@@ -63,28 +68,28 @@ const HeroSection = () => {
 
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-3 mb-8">
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="border-2 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary transform hover:scale-105"
-                onClick={() => navigate('/work')}
               >
-                WORK
+                <Link to="/work">WORK</Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="border-2 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary transform hover:scale-105"
-                onClick={() => navigate('/skills')}
               >
-                SKILLS
+                <Link to="/skills">SKILLS</Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="border-2 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary transform hover:scale-105"
-                onClick={() => window.open("https://maxritter.bloggi.co/", "_blank")}
               >
-                BLOG
+                <a href="https://maxritter.bloggi.co/" target="_blank" rel="noopener noreferrer">BLOG</a>
               </Button>
             </motion.div>
 

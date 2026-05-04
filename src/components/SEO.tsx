@@ -7,18 +7,25 @@ interface SEOProps {
   pagePath?: string;
   type?: "Person" | "WebPage" | "Article";
   schemaData?: Record<string, unknown>;
+  noindex?: boolean;
 }
+
+const SITE_URL = "https://www.maxritter.net";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
+const DEFAULT_KEYWORDS =
+  "Max Ritter, IT Freelancer, AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, MCP, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany";
 
 const SEO = ({
   title = "Max Ritter | IT Freelancer - Advisor | Architect | Engineer | Agentic Engineering & Cloud",
   description = "Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Specializing in Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
-  canonical = "https://maxritter.net",
+  canonical = SITE_URL,
   pagePath = "",
   type = "WebPage",
   schemaData = {},
+  noindex = false,
 }: SEOProps) => {
   const pageUrl = pagePath ? `${canonical}/${pagePath}` : canonical;
-  
+
   const defaultSchemaData = {
     "@context": "https://schema.org",
     "@type": type,
@@ -26,9 +33,9 @@ const SEO = ({
     "description": description,
     "url": pageUrl,
   };
-  
+
   const personSchema = type === "Person" ? {
-    "image": "https://maxritter.net/profile.png",
+    "image": `${SITE_URL}/profile.png`,
     "jobTitle": "IT Freelancer - Advisor | Architect | Engineer",
     "knowsAbout": [
       "AI Technical Advisory",
@@ -52,37 +59,41 @@ const SEO = ({
       "addressCountry": "Germany"
     }
   } : {};
-  
+
   const fullSchemaData = {
     ...defaultSchemaData,
     ...personSchema,
-    ...schemaData
+    ...schemaData,
   };
-  
+
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={pageUrl} />
-      
-      {/* Keywords */}
-      <meta name="keywords" content="AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, MCP, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany" />
-      
-      {/* Open Graph / Facebook */}
+      <meta name="keywords" content={DEFAULT_KEYWORDS} />
+      <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+      <meta name="author" content="Max Ritter" />
+
+      {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://maxritter.net/logo.jpg" />
+      <meta property="og:image" content={DEFAULT_OG_IMAGE} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="574" />
+      <meta property="og:image:alt" content="Max Ritter — IT Freelancer & Agentic Engineering" />
       <meta property="og:site_name" content="Max Ritter" />
-      
+      <meta property="og:locale" content="en_US" />
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={pageUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="https://maxritter.net/logo.jpg" />
-      
+      <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
+
       {/* Schema.org structured data */}
       <script type="application/ld+json">
         {JSON.stringify(fullSchemaData)}

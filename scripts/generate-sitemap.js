@@ -14,7 +14,7 @@ const urls = [
 ];
 
 // Create a stream to write to
-const stream = new SitemapStream({ hostname: 'https://maxritter.net' });
+const stream = new SitemapStream({ hostname: 'https://www.maxritter.net' });
 
 // Return a promise that resolves with your XML string
 streamToPromise(Readable.from(urls).pipe(stream))

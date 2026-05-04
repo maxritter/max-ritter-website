@@ -3,19 +3,25 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToHomeButton from "@/components/BackToHomeButton";
+import SEO from "@/components/SEO";
 import { pageVariants } from "@/utils/animations";
 
 const Imprint = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen flex flex-col bg-background"
       initial="initial"
       animate="in"
       exit="out"
       variants={pageVariants}
     >
+      <SEO
+        title="Imprint | Max Ritter"
+        description="Legal disclosure and contact information for Max Ritter — IT Freelancer based in Germany."
+        pagePath="imprint"
+      />
       <Header />
       <BackToHomeButton />
       <main className="flex-grow pt-16">

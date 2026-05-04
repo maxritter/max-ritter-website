@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://maxritter.net/sitemap.xml 
+
+Sitemap: https://www.maxritter.net/sitemap.xml
+Host: www.maxritter.net

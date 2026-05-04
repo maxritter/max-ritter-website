@@ -3,19 +3,25 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToHomeButton from "@/components/BackToHomeButton";
+import SEO from "@/components/SEO";
 import { pageVariants } from "@/utils/animations";
 
 const Privacy = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen flex flex-col bg-background"
       initial="initial"
       animate="in"
       exit="out"
       variants={pageVariants}
     >
+      <SEO
+        title="Privacy Policy | Max Ritter"
+        description="Privacy policy for maxritter.net — how Max Ritter handles personal data, cookies, and analytics."
+        pagePath="privacy"
+      />
       <Header />
       <BackToHomeButton />
       <main className="flex-grow pt-16">
