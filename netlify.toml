@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Persist Puppeteer's Chromium download in Netlify's build cache
+  # so it isn't re-downloaded on every deploy.
+  PUPPETEER_CACHE_DIR = "/opt/build/cache/puppeteer"

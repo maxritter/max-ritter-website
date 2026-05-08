@@ -17,8 +17,8 @@ const Work = () => {
       variants={pageVariants}
     >
       <SEO
-        title="Selected Work | Max Ritter | Senior IT Freelancer"
-        description="View Max Ritter's selected work and projects in AWS Cloud, Data Engineering, DevOps, and AI. Senior IT Freelancer from Germany."
+        title="Work — Max Ritter | IT Freelancer"
+        description="Selected work and projects by Max Ritter — AWS Cloud, Data, DevOps, and AI engineering for enterprise clients."
         pagePath="work"
       />
       <Header />

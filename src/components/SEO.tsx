@@ -12,19 +12,26 @@ interface SEOProps {
 
 const SITE_URL = "https://www.maxritter.net";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
+const buildPageUrl = (pagePath: string): string =>
+  pagePath ? `${SITE_URL}/${pagePath}` : `${SITE_URL}/`;
 const DEFAULT_KEYWORDS =
   "Max Ritter, IT Freelancer, AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, MCP, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany";
 
 const SEO = ({
-  title = "Max Ritter | IT Freelancer - Advisor | Architect | Engineer | Agentic Engineering & Cloud",
-  description = "Senior IT Freelancer from Germany - advising, architecting, and engineering AI-driven solutions. Specializing in Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
+  title = "Max Ritter — IT Freelancer | Agentic Engineering & Cloud",
+  description = "Senior IT Freelancer from Germany. Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
   canonical = SITE_URL,
   pagePath = "",
   type = "WebPage",
   schemaData = {},
   noindex = false,
 }: SEOProps) => {
-  const pageUrl = pagePath ? `${canonical}/${pagePath}` : canonical;
+  const pageUrl =
+    canonical === SITE_URL
+      ? buildPageUrl(pagePath)
+      : pagePath
+        ? `${canonical}/${pagePath}`
+        : canonical;
 
   const defaultSchemaData = {
     "@context": "https://schema.org",
