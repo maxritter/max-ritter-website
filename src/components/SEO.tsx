@@ -43,7 +43,7 @@ const SEO = ({
 
   const personSchema = type === "Person" ? {
     "image": `${SITE_URL}/profile.png`,
-    "jobTitle": "IT Freelancer - Advisor | Architect | Engineer",
+    "jobTitle": "IT Freelancer - AI | Data | Cloud | DevOps",
     "knowsAbout": [
       "AI Technical Advisory",
       "Agentic Engineering",
@@ -52,6 +52,7 @@ const SEO = ({
       "AI Agent Systems & LLMs",
       "Context Engineering",
       "RAG Systems",
+      "Claude Code",
       "Engineering Enablement",
       "Data Engineering",
       "Infrastructure as Code"

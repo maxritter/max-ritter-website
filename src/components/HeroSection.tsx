@@ -54,7 +54,7 @@ const HeroSection = () => {
               Hi, I'm Max.
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl md:text-3xl text-primary font-bold mb-5 text-center">
-              Advisor | Architect | Engineer
+              AI | Data | Cloud | DevOps
             </motion.p>
 
             <motion.div variants={fadeUp} className="text-lg text-center mb-5 max-w-2xl">

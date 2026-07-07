@@ -16,7 +16,7 @@ const ProjectsSection = () => {
   const workProjects = [
     {
       id: 1,
-      title: "Senior AI Technical Advisor (Freelancer)",
+      title: "Senior AI Engineer and Technical Advisor (Freelancer)",
       duration: "02/2026 - present",
       industry: "Agentic Platform",
       company: "Dialpad",
@@ -31,22 +31,22 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: "Senior Data and Cloud Architect (Freelancer)",
+      title: "Senior AI, Data and Cloud Engineer (Freelancer)",
       duration: "07/2025 - 01/2026",
       industry: "Telecommunications",
       company: "OEW Breitband GmbH",
       description: "Architected and implemented an enterprise-grade data integration and intelligent document search platform for Germany's government-subsidized fiber optic expansion program in Baden-Württemberg. Built ETL pipelines aggregating multi-source data from CRM and ERP systems into a centralized data lake with medallion architecture. Implemented address validation using event-driven serverless architecture on AWS. Designed an AI-powered search engine using Amazon Bedrock Knowledge Bases with vector embeddings, OpenSearch Serverless and Reranking.",
       technologies: [
+        "AI & Search (AWS Bedrock, Vector Embeddings, OpenSearch Serverless)",
         "Event-Driven Architecture (Python, EventBridge, Step Functions)",
         "Data Engineering (AWS Glue, RDS PostgreSQL, S3 Data Lake, Parquet)",
-        "AI & Search (AWS Bedrock, Vector Embeddings, OpenSearch Serverless)",
         "Infrastructure-as-Code (AWS CDK, TypeScript, Terraform, CI/CD, ECS)"
       ],
       icon: Database
     },
     {
       id: 3,
-      title: "Senior AI, Data and Cloud Architect (Freelancer)",
+      title: "Senior AI, Data and Cloud Engineer (Freelancer)",
       duration: "11/2024 - 06/2025",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
@@ -76,16 +76,16 @@ const ProjectsSection = () => {
     },
     {
       id: 5,
-      title: "Senior Cloud, Data and DevOps Engineer (Freelancer)",
+      title: "Senior AI, Cloud, Data and DevOps Engineer (Freelancer)",
       duration: "04/2023 - 06/2024",
       industry: "Pharmaceutical",
       company: "Boehringer Ingelheim",
       description: "Developed an analytics platform for clinical trials that reduced operational decision time and improved trial efficiency. Engineered scalable Python microservices that processed complex trial data with high reliability. Implemented AWS CDK infrastructure that automated deployment tasks and optimized cloud resources. Created efficient ETL pipelines that transformed raw clinical data into actionable insights. Trained and deployed specialized LLMs that answered complex clinical queries, supporting critical decision-making processes.",
       technologies: [
+        "Large-Language-Models (Fine-Tuning, LangChain, Azure OpenAI)",
         "Python Backend (FastAPI, OpenAPI, Pydantic, Open-/ElasticSearch)",
         "Infrastructure-As-Code (AWS CDK, Typescript, Cloudformation)",
-        "ETL Pipelines (AWS Glue, Step Functions, Pandas, PySpark, Airflow)",
-        "Large-Language-Models (Fine-Tuning, LangChain, Azure OpenAI)"
+        "ETL Pipelines (AWS Glue, Step Functions, Pandas, PySpark, Airflow)"
       ],
       icon: Bot
     },
