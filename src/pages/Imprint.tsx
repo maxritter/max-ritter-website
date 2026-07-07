@@ -31,7 +31,7 @@ const Imprint = () => {
               Imprint
             </h1>
           </div>
-          
+
           <div className="prose prose-invert max-w-none">
             <h2 className="text-2xl font-bold mb-4">Legal Disclosure</h2>
             <p>
@@ -41,9 +41,9 @@ const Imprint = () => {
               <br />
               Max Ritter - IT Freelancer
               <br />
-              Schöngeisinger Str. 62
+              An der kalten Quelle 11
               <br />
-              82256 Fürstenfeldbruck
+              86825 Bad Wörishofen
               <br />
               Bavaria, Germany
             </p>
