@@ -56,13 +56,40 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* The browser default focus ring is a dark blue that disappears on this
+     background. Use the theme ring token so keyboard users can see where they are. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
   .hero-gradient {
     @apply absolute inset-0 -z-10 bg-gradient-to-b from-background to-background via-primary/5;
   }
-  
+
+  /* Subtle atmosphere behind inner page headers so they don't start on a flat field. */
+  .page-glow {
+    @apply pointer-events-none absolute inset-x-0 top-0 -z-10 h-80;
+    background: radial-gradient(
+      60% 100% at 20% 0%,
+      hsl(var(--primary) / 0.09),
+      transparent 70%
+    );
+  }
+
   .section-padding {
     @apply py-12 md:py-16;
   }
@@ -80,14 +107,14 @@
   }
   
   .skill-badge {
-    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 border border-primary/20 transition-colors duration-300 hover:bg-primary/20 hover:border-primary/40;
   }
-  
+
   .section-header {
     @apply flex items-center gap-3 mb-8 pb-4 border-b border-border/50;
   }
-  
+
   .section-title {
-    @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text;
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
   }
 }

@@ -11,7 +11,7 @@ const fs = require('node:fs/promises');
 const http = require('node:http');
 const puppeteer = require('puppeteer');
 
-const ROUTES = ['/', '/work', '/skills', '/imprint', '/privacy', '/terms'];
+const ROUTES = ['/', '/projects', '/work', '/skills', '/imprint', '/privacy', '/terms'];
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 const PORT = 4173;
 
@@ -94,6 +94,27 @@ async function prerender() {
         () => document.querySelector('link[rel="canonical"][data-rh="true"]') !== null,
         { timeout: 10000 }
       );
+
+      // Scroll the whole page so scroll-triggered reveals (framer-motion whileInView)
+      // fire before capture. Without this, below-the-fold content is serialized with
+      // an inline `opacity: 0` and is invisible to crawlers that don't scroll.
+      await page.evaluate(async () => {
+        const step = window.innerHeight / 2;
+        for (let y = 0; y < document.body.scrollHeight; y += step) {
+          window.scrollTo(0, y);
+          await new Promise((r) => setTimeout(r, 120));
+        }
+        window.scrollTo(0, document.body.scrollHeight);
+        await new Promise((r) => setTimeout(r, 600));
+        window.scrollTo(0, 0);
+      });
+      await page.waitForFunction(
+        () =>
+          ![...document.querySelectorAll('[style*="opacity: 0"]')].some(
+            (el) => el.getBoundingClientRect().height > 0
+          ),
+        { timeout: 10000 }
+      ).catch(() => console.warn(`⚠️  ${route}: some elements still hidden at capture time`));
 
       const html = await page.content();
       await page.close();

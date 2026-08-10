@@ -7,6 +7,7 @@ interface SEOProps {
   pagePath?: string;
   type?: "Person" | "WebPage" | "Article";
   schemaData?: Record<string, unknown>;
+  keywords?: string;
   noindex?: boolean;
 }
 
@@ -15,15 +16,16 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
 const buildPageUrl = (pagePath: string): string =>
   pagePath ? `${SITE_URL}/${pagePath}` : `${SITE_URL}/`;
 const DEFAULT_KEYWORDS =
-  "Max Ritter, IT Freelancer, AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, MCP, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany";
+  "Max Ritter, IT Freelancer, AI Technical Advisor, Solution Architect, Agentic Engineering, AWS Cloud Architecture, AI Enablement, Engineering Advisory, LLM Engineering, RAG Architecture, AI Agents, Context Engineering, Claude Code, Codex CLI, MCP, Pilot Shell, Bahnsparer, DIY-Thermocam, Open Source, Infrastructure as Code, Terraform, AWS CDK, Data Engineering, Freelancer, Germany";
 
 const SEO = ({
   title = "Max Ritter — IT Freelancer | Agentic Engineering & Cloud",
-  description = "Senior IT Freelancer from Germany. Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement.",
+  description = "Senior IT Freelancer from Germany. Agentic Engineering, AWS Cloud Architecture, and enterprise AI enablement. Creator of Pilot Shell, Bahnsparer and DIY-Thermocam.",
   canonical = SITE_URL,
   pagePath = "",
   type = "WebPage",
   schemaData = {},
+  keywords = DEFAULT_KEYWORDS,
   noindex = false,
 }: SEOProps) => {
   const pageUrl =
@@ -79,7 +81,7 @@ const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={pageUrl} />
-      <meta name="keywords" content={DEFAULT_KEYWORDS} />
+      <meta name="keywords" content={keywords} />
       <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
       <meta name="author" content="Max Ritter" />
 

@@ -1,7 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { FileText, Github, Linkedin, Mail, Rss } from "lucide-react";
+import { FileText, Github, Linkedin, LucideIcon, Mail, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+interface SocialLink {
+  href: string;
+  label: string;
+  external: boolean;
+  icon?: LucideIcon;
+  /** Wordmark for services without an icon in the set (dev.to). */
+  text?: string;
+}
+
+const socialLinks: SocialLink[] = [
+  { href: "mailto:mail@maxritter.net", label: "Email", external: false, icon: Mail },
+  { href: "https://flowcv.com/resume/hcaa0q4wdd", label: "CV", external: true, icon: FileText },
+  { href: "https://www.linkedin.com/in/rittermax/", label: "LinkedIn", external: true, icon: Linkedin },
+  { href: "https://github.com/maxritter", label: "GitHub", external: true, icon: Github },
+  { href: "https://dev.to/maxritter", label: "Dev.to", external: true, text: "DEV" },
+  { href: "https://maxritter.bloggi.co/feed", label: "RSS Feed", external: true, icon: Rss },
+];
 
 const container = {
   hidden: {},
@@ -50,19 +68,19 @@ const HeroSection = () => {
               </picture>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-2xl md:text-4xl font-bold mb-4 text-center">
+            <motion.h1 variants={fadeUp} className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-center">
               Hi, I'm Max.
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-xl md:text-3xl text-primary font-bold mb-5 text-center">
+            <motion.p variants={fadeUp} className="text-xl md:text-3xl text-primary font-bold tracking-tight mb-5 text-center">
               AI | Data | Cloud | DevOps
             </motion.p>
 
-            <motion.div variants={fadeUp} className="text-lg text-center mb-5 max-w-2xl">
+            <motion.div variants={fadeUp} className="text-lg leading-relaxed text-center mb-6 max-w-2xl text-foreground/85">
               <p className="mb-3">
-                I am a <span className="text-primary">Senior IT Freelancer</span> from Germany, helping enterprises adopt <span className="text-primary">Agentic Engineering, AI-driven architectures, and modern cloud platforms</span>. My approach is both <span className="text-primary">high-level and hands-on</span> — I advise, I architect, and I engineer.
+                I am a <span className="text-primary font-medium">Senior IT Freelancer</span> from Germany, helping enterprises adopt <span className="text-foreground font-medium">Agentic Engineering, AI-driven architectures, and modern cloud platforms</span>. My approach is both high-level and hands-on — I advise, I architect, and I engineer.
               </p>
               <p>
-                As a <span className="text-primary">certified professional</span> with broad expertise across <span className="text-primary">Cloud, Data, DevOps and AI</span> with a deep specialization in agentic systems — I bridge the gap between <span className="text-primary">strategic vision and technical execution</span>.
+                As a certified professional with broad expertise across <span className="text-foreground font-medium">Cloud, Data, DevOps and AI</span> — and a deep specialization in agentic systems — I bridge the gap between <span className="text-primary font-medium">strategic vision and technical execution</span>.
               </p>
             </motion.div>
 
@@ -74,6 +92,13 @@ const HeroSection = () => {
                 className="border-2 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary transform hover:scale-105"
               >
                 <Link to="/work">WORK</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-md transition-all duration-300 transform hover:scale-105"
+              >
+                <Link to="/projects">PROJECTS</Link>
               </Button>
               <Button
                 asChild
@@ -93,25 +118,18 @@ const HeroSection = () => {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex justify-center space-x-6 mb-2">
-              <a href="mailto:mail@maxritter.net" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" aria-label="Email">
-                <Mail size={24} />
-              </a>
-              <a href="https://flowcv.com/resume/hcaa0q4wdd" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="CV">
-                <FileText size={24} />
-              </a>
-              <a href="https://www.linkedin.com/in/rittermax/" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin size={24} />
-              </a>
-              <a href="https://github.com/maxritter" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github size={24} />
-              </a>
-              <a href="https://dev.to/maxritter" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="Dev.to">
-                <span className="font-bold">DEV</span>
-              </a>
-              <a href="https://maxritter.bloggi.co/feed" className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110" target="_blank" rel="noopener noreferrer" aria-label="RSS Feed">
-                <Rss size={24} />
-              </a>
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-1 mb-2">
+              {socialLinks.map(({ href, label, external, icon: Icon, text }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="flex h-11 w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors duration-300 hover:text-primary hover:bg-primary/10"
+                >
+                  {Icon ? <Icon size={22} aria-hidden="true" /> : <span className="text-sm font-bold tracking-tight" aria-hidden="true">{text}</span>}
+                </a>
+              ))}
             </motion.div>
           </div>
         </motion.div>

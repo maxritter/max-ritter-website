@@ -6,6 +6,7 @@ const path = require('path');
 // Define your site URLs
 const urls = [
   { url: '/', changefreq: 'monthly', priority: 1.0 },
+  { url: '/projects', changefreq: 'weekly', priority: 0.9 },
   { url: '/skills', changefreq: 'monthly', priority: 0.8 },
   { url: '/work', changefreq: 'monthly', priority: 0.8 },
   { url: '/imprint', changefreq: 'yearly', priority: 0.3 },

@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import ProductsTeaser from "@/components/ProductsTeaser";
 import SEO from "@/components/SEO";
+import { products } from "@/data/products";
 
 const pageVariants = {
   initial: {
@@ -31,17 +33,30 @@ const Index = () => {
       exit="out"
       variants={pageVariants}
     >
-      <SEO 
+      <SEO
         type="Person"
         schemaData={{
           "sameAs": [
-            "https://maxritter.bloggi.co/"
-          ]
+            "https://maxritter.bloggi.co/",
+            "https://github.com/maxritter",
+            "https://www.linkedin.com/in/rittermax/",
+            "https://dev.to/maxritter"
+          ],
+          "workExample": products.map((product) => ({
+            "@type": "SoftwareApplication",
+            "name": product.name,
+            "alternateName": product.tagline,
+            "description": product.summary,
+            "url": product.website.url,
+            "applicationCategory": product.applicationCategory,
+            "operatingSystem": product.operatingSystem
+          }))
         }}
       />
       <Header />
-      <main className="flex-grow flex items-center justify-center py-0 mt-10">
+      <main className="flex-grow flex flex-col justify-center py-0 mt-10">
         <HeroSection />
+        <ProductsTeaser />
       </main>
       <Footer />
     </motion.div>

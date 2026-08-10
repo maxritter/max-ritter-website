@@ -232,11 +232,11 @@ const ProjectsSection = () => {
                       <div className="flex flex-wrap items-center gap-3 text-sm">
                         <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
                           <Building2 className="w-4 h-4 text-primary" />
-                          <span className="font-medium">{project.industry}</span>
+                          <span className="font-medium">{project.company}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-secondary/30 px-3 py-1.5 rounded-lg">
                           <Briefcase className="w-4 h-4 text-primary" />
-                          <span className="font-medium">{project.company}</span>
+                          <span className="font-medium">{project.industry}</span>
                         </div>
                       </div>
                     </CardHeader>
