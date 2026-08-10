@@ -1,43 +1,43 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface PageHeaderProps {
+  /** Leading, ink-colored part of the headline. */
   title: string;
+  /** Trailing, amber part of the headline. */
+  accent?: string;
   subtitle?: string;
-  icon: LucideIcon;
 }
 
-const PageHeader = ({ title, subtitle, icon: Icon }: PageHeaderProps) => {
-  const navigate = useNavigate();
-
+const PageHeader = ({ title, accent, subtitle }: PageHeaderProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative mb-10"
+      transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <span className="page-glow" aria-hidden="true" />
-      <button
-        onClick={() => navigate("/")}
-        className="group flex items-center gap-2 rounded-md py-2 pr-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+      <Link
+        to="/"
+        className="group mb-2 inline-flex items-center gap-2 rounded-md py-2 pr-2 text-sm text-muted-foreground transition-colors hover:text-primary"
       >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
         <span>Back to Home</span>
-      </button>
-      <div className="flex items-center gap-4">
-        <div className="bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/15 p-3 rounded-2xl shrink-0">
-          <Icon className="w-8 h-8 text-primary" />
-        </div>
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance">{title}</h1>
-          {subtitle && (
-            <p className="text-muted-foreground mt-1.5">{subtitle}</p>
-          )}
-        </div>
-      </div>
+      </Link>
+      <h1 className="max-w-[24ch] text-[clamp(2.2rem,6vw,3.375rem)] font-medium leading-[1.05] tracking-[-0.032em]">
+        {title}
+        {accent && (
+          <>
+            {" "}
+            <span className="text-primary">{accent}</span>
+          </>
+        )}
+      </h1>
+      {subtitle && (
+        <p className="mb-14 mt-5 max-w-[70ch] text-[16.5px] leading-relaxed text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
     </motion.div>
   );
 };

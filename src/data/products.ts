@@ -1,29 +1,28 @@
-import { Bot, Train, Thermometer, LucideIcon } from "lucide-react";
-
 export interface ProductLink {
   url: string;
   label: string;
 }
 
+export type ProductStatus = "live" | "beta" | "open";
+
 export interface Product {
-  /** Stable slug — also the basename of the logo assets in /public/projects. */
+  /** Stable slug: anchor id on /projects and basename of the logo in /public/projects. */
   slug: string;
   name: string;
   tagline: string;
-  category: string;
-  /** Short lifecycle label rendered as a pill, e.g. "Live product". */
-  status: string;
-  /** One-liner used on the home page teaser. */
+  status: ProductStatus;
+  statusLabel: string;
+  /** One-liner used on the home page index. */
   summary: string;
+  /** Full paragraph on the /projects page. */
   description: string;
-  highlights: string[];
+  /** Short mono facts row. */
   facts: string[];
-  icon: LucideIcon;
-  /** True when the logo tile has a light background and needs a border to sit on the dark card. */
-  logoOnLight: boolean;
+  /** "In the box" side list on the /projects page. */
+  inBox: string[];
   website: ProductLink;
   repo?: ProductLink;
-  /** schema.org applicationCategory for the SoftwareApplication entry. */
+  /** schema.org SoftwareApplication fields. */
   applicationCategory: string;
   operatingSystem: string;
 }
@@ -33,21 +32,20 @@ export const products: Product[] = [
     slug: "pilot-shell",
     name: "Pilot Shell",
     tagline: "How real engineers run Claude Code and Codex",
-    category: "Developer Tooling · Agentic Engineering",
-    status: "Live product",
-    summary: "Spec-driven development, enforced TDD and quality gates for Claude Code and Codex CLI.",
+    status: "live",
+    statusLabel: "Live product",
+    summary:
+      "My own engineering framework: spec-driven development, enforced TDD and quality gates for Claude Code and Codex CLI. 1.8k stars.",
     description:
-      "Pilot Shell turns coding agents into disciplined engineers. It installs globally on top of Claude Code and Codex CLI and adds the structure they lack on their own: /prd shapes a vague idea into a product requirements document, /spec plans, implements and verifies a feature end-to-end with test-driven development, /build loops build-and-judge against acceptance criteria until every one of them passes, and /fix resolves bugs at their root cause with a reproducing test. Quality hooks format, lint and type-check every edit, persistent memory carries decisions across sessions, and semantic code search plus a code knowledge graph keep context accurate while cutting token cost. A local Console dashboard tracks specs, sessions, memories, diffs and usage — and everything stays on your machine.",
-    highlights: [
-      "Workflows (/prd, /spec, /build, /fix with enforced TDD)",
-      "Quality Hooks (format, lint, type-check on every edit)",
-      "Context Engineering (persistent memory, semantic search, code graph)",
-      "Agent Platform (skills, hooks, sub-agents, MCP & LSP servers)",
-      "Local Console (specs, sessions, memories, diffs, token usage)",
+      "Coding agents write fast but skip tests, lose context and drift. Pilot Shell installs on top of Claude Code and Codex CLI and adds the structure they lack: /prd shapes an idea into requirements, /spec plans and verifies a feature end-to-end with TDD, /build loops build-and-judge until every acceptance criterion passes, and /fix resolves bugs at the root cause with a reproducing test. Quality hooks lint, format and type-check every edit; persistent memory carries decisions across sessions; everything stays on your machine.",
+    facts: ["1.8k+ GitHub stars", "macOS / Linux / WSL2", "Claude Code & Codex CLI"],
+    inBox: [
+      "Workflows: /prd, /spec, /build, /fix - TDD enforced",
+      "Quality hooks on every edit",
+      "Persistent memory + semantic code search",
+      "Local console: specs, sessions, diffs, usage",
+      "MCP & LSP servers pre-wired",
     ],
-    facts: ["1.8k+ GitHub stars", "macOS · Linux · Windows (WSL2)", "Claude Code & Codex CLI"],
-    icon: Bot,
-    logoOnLight: false,
     website: { url: "https://pilot-shell.com/", label: "pilot-shell.com" },
     repo: { url: "https://github.com/maxritter/pilot-shell", label: "GitHub" },
     applicationCategory: "DeveloperApplication",
@@ -56,22 +54,21 @@ export const products: Product[] = [
   {
     slug: "bahnsparer",
     name: "Bahnsparer",
-    tagline: "Günstiger ans Ziel — price alerts for German rail",
-    category: "Consumer Mobile App · Travel",
-    status: "Public beta",
-    summary: "iOS and Android app that watches Deutsche Bahn fares and alerts you when your trip gets cheaper.",
+    tagline: "Günstiger ans Ziel - fare alerts for German rail",
+    status: "beta",
+    statusLabel: "Public beta",
+    summary:
+      "iOS and Android app that watches Deutsche Bahn fares and tells you when your trip gets cheaper.",
     description:
-      "Bahnsparer watches Deutsche Bahn Sparpreis fares so you don't have to. Fix your travel day and the app monitors exactly that day in the background, notifying you on every new low — and warning you when the cheap contingent sells out. Stay flexible instead and a four-week calendar shows the cheapest fare for every day at a glance. It ranks Deutsche Bahn and FlixTrain in a single list, checks split tickets against the through fare, offsets the Deutschlandticket on regional legs, handles multiple travellers with their own BahnCards and youth, senior, child or dog tariffs, and puts each train's punctuality record right next to its price. Free, no account, and every route, alert and price history stays on the device.",
-    highlights: [
-      "Background Price Monitoring (alerts on every new low fare)",
-      "Four-Week Price Calendar (cheapest day, average, best weekday)",
-      "Fare Intelligence (split tickets, Deutschlandticket, BahnCard, tariffs)",
-      "Operator Comparison (Deutsche Bahn and FlixTrain in one ranked list)",
-      "Privacy by Design (no account, no tracking, data stays on device)",
+      "Bahnsparer watches Deutsche Bahn Sparpreis fares so you don't have to. Fix your travel day and it monitors exactly that day in the background, notifying you on every new low - and warning you when the cheap contingent sells out. Stay flexible and a four-week calendar shows the cheapest fare for every day at a glance, with DB and FlixTrain ranked in one list and each train's punctuality record next to its price.",
+    facts: ["iOS & Android", "Free, no account", "Data stays on device"],
+    inBox: [
+      "Background price monitoring with alerts",
+      "Four-week price calendar",
+      "Split tickets, Deutschlandticket, BahnCard math",
+      "DB and FlixTrain in one ranked list",
+      "No account, no tracking",
     ],
-    facts: ["iOS & Android", "TestFlight & Google Play beta", "Free, no account"],
-    icon: Train,
-    logoOnLight: true,
     website: { url: "https://bahnsparer.de/", label: "bahnsparer.de" },
     applicationCategory: "TravelApplication",
     operatingSystem: "iOS, Android",
@@ -80,24 +77,39 @@ export const products: Product[] = [
     slug: "diy-thermocam",
     name: "DIY-Thermocam",
     tagline: "Open-source thermal imaging for everyone",
-    category: "Open-Source Hardware · Embedded Systems",
-    status: "Open source",
-    summary: "A low-cost, self-assembly thermal imaging camera built around the FLIR Lepton sensor.",
+    status: "open",
+    statusLabel: "Open source",
+    summary:
+      "An open-source thermal imaging camera built around the FLIR Lepton sensor. 1.2k stars, 179 forks.",
     description:
-      "DIY-Thermocam is a do-it-yourself thermal imager built around the FLIR Lepton long-wave infrared sensor, and everything about it is public: the C/C++ firmware, the printed circuit board, the enclosure and a full desktop software suite. It is designed as a self-assembly kit that can be built at home with standard tools, giving makers, schools and companies an affordable and fully customisable thermal imaging platform. The device is driven from a 3.2\" TFT touch screen, saves single images, video and time-lapse series to internal storage, and streams live thermal data to a PC over USB serial. People use it to find heat leaks in building insulation, analyse electrical and mechanical components, detect people and animals, or mount it on a drone for continuous capture.",
-    highlights: [
-      "Firmware (C/C++, PlatformIO, FLIR Lepton 2.5 / 3.1R / 3.5)",
-      "Hardware (custom PCB, self-assembly enclosure, 3.2\" TFT touch screen)",
-      "Desktop Suite (thermal analysis, live viewer, data viewer, video converter)",
-      "Connectivity (USB serial protocol, mass storage, remote settings)",
-      "Applications (building insulation, electronics, drones, research)",
+      "A do-it-yourself thermal imager built around the FLIR Lepton sensor - firmware, PCB, enclosure and a full desktop suite, all public. Designed as a self-assembly kit buildable at home with standard tools; used for finding heat leaks, analysing electronics, and drone-mounted capture. It began as my bachelor thesis and became a platform used by makers, schools and companies.",
+    facts: ["1.2k+ GitHub stars", "179 forks", "C/C++ · FLIR Lepton"],
+    inBox: [
+      "Open firmware for FLIR Lepton 2.5 / 3.1R / 3.5",
+      "Custom PCB and self-assembly enclosure",
+      "Desktop suite: analysis, live view, converter",
+      "USB serial streaming and mass storage",
     ],
-    facts: ["1.2k+ GitHub stars", "179 forks", "Open hardware & software"],
-    icon: Thermometer,
-    logoOnLight: true,
     website: { url: "https://www.diy-thermocam.net/", label: "diy-thermocam.net" },
     repo: { url: "https://github.com/maxritter/diy-thermocam", label: "GitHub" },
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Cross-platform",
   },
 ];
+
+const SITE_URL = "https://www.maxritter.net";
+
+/** schema.org SoftwareApplication node for a product. */
+export const productSchema = (product: Product): Record<string, unknown> => ({
+  "@type": "SoftwareApplication",
+  name: product.name,
+  alternateName: product.tagline,
+  description: product.summary,
+  url: product.website.url,
+  image: `${SITE_URL}/projects/${product.slug}.png`,
+  applicationCategory: product.applicationCategory,
+  operatingSystem: product.operatingSystem,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  author: { "@type": "Person", name: "Max Ritter", url: `${SITE_URL}/` },
+  ...(product.repo ? { codeRepository: product.repo.url } : {}),
+});

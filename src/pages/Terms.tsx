@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackToHomeButton from "@/components/BackToHomeButton";
 import SEO from "@/components/SEO";
 
 const pageVariants = {
@@ -24,8 +22,6 @@ const pageVariants = {
 };
 
 const Terms = () => {
-  const navigate = useNavigate();
-
   return (
     <motion.div 
       className="min-h-screen flex flex-col bg-background"
@@ -40,8 +36,7 @@ const Terms = () => {
         pagePath="terms"
       />
       <Header />
-      <BackToHomeButton />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col gap-4 mb-4">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">

@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#0F172A" />
+    <meta name="theme-color" content="#0a0b0d" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="author" content="Max Ritter" />
 
     <!-- Default title; SEO meta is injected per-route by react-helmet-async at build time -->
-    <title>Max Ritter — IT Freelancer | Agentic Engineering &amp; Cloud</title>
+    <title>Max Ritter &mdash; Data, Cloud &amp; AI Systems Engineer | IT Freelancer</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
@@ -21,8 +21,10 @@
     <link rel="preconnect" href="https://analytics.ahrefs.com" crossorigin />
     <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
 
-    <!-- Preload LCP image (hero profile picture) -->
-    <link rel="preload" as="image" href="/profile.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload the fonts the first paint needs (self-hosted, no CDN) -->
+    <link rel="preload" as="font" href="/fonts/switzer-500.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/switzer-400.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/geist-mono.woff2" type="font/woff2" crossorigin />
 
     <!-- Ahrefs Analytics -->
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="S7mQfVA8T3L5sfBK66rWdA" async></script>

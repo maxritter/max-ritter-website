@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackToHomeButton from "@/components/BackToHomeButton";
 import SEO from "@/components/SEO";
 import { pageVariants } from "@/utils/animations";
 
 const Imprint = () => {
-  const navigate = useNavigate();
-
   return (
     <motion.div
       className="min-h-screen flex flex-col bg-background"
@@ -23,8 +19,7 @@ const Imprint = () => {
         pagePath="imprint"
       />
       <Header />
-      <BackToHomeButton />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col gap-4 mb-4">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
@@ -57,7 +52,7 @@ const Imprint = () => {
             <p>
               VAT No. according to §27 Value Added Tax Act:
               <br />
-              <strong>DE341567246</strong>
+              <strong>DE349034459</strong>
             </p>
 
             <h3 className="text-xl font-bold mt-6 mb-2">Professional Liability Insurance</h3>

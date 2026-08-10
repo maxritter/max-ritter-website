@@ -1,49 +1,88 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted fonts (GDPR: no font CDN requests at runtime). */
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/geist-mono.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 10%;
-    --foreground: 210 40% 98%;
+    /* Editorial dark palette (derived from the approved oklch draft). */
+    --background: 211 13% 4%;
+    --foreground: 211 12% 96%;
 
-    --card: 220 25% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 211 11% 7%;
+    --card-foreground: 211 12% 96%;
 
-    --popover: 220 25% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 211 11% 7%;
+    --popover-foreground: 211 12% 96%;
 
-    --primary: 210 100% 59%;
-    --primary-foreground: 0 0% 10%;
-    --primary-glow: 210 100% 70%;
+    /* Amber: the single signal color. */
+    --primary: 34 91% 60%;
+    --primary-foreground: 31 91% 7%;
 
-    --secondary: 220 30% 20%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 211 9% 11%;
+    --secondary-foreground: 211 12% 96%;
 
-    --muted: 220 20% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 211 9% 11%;
+    --muted-foreground: 211 3% 63%;
 
-    --accent: 210 95% 50%;
-    --accent-foreground: 210 40% 98%;
+    /* Cyan: the secondary meaning color. */
+    --accent: 186 63% 63%;
+    --accent-foreground: 211 13% 4%;
+
+    /* Quieter-than-muted ink for mono labels and metadata. */
+    --faint: 211 3% 53%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 211 12% 96%;
 
-    --border: 220 20% 22%;
-    --input: 220 20% 18%;
-    --ring: 210 100% 59%;
+    --border: 211 7% 15%;
+    --input: 211 9% 11%;
+    --ring: 34 91% 60%;
 
-    --radius: 0.75rem;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 59% / 0.1), hsl(210 100% 70% / 0.05));
-    --gradient-card: linear-gradient(180deg, hsl(220 25% 16%), hsl(220 25% 14%));
-    
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(210 100% 59% / 0.15);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
-    --shadow-hover: 0 8px 30px hsl(210 100% 59% / 0.2);
+    --radius: 0.1875rem;
   }
 }
 
@@ -52,18 +91,29 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    text-wrap: pretty;
   }
 
-  /* The browser default focus ring is a dark blue that disappears on this
-     background. Use the theme ring token so keyboard users can see where they are. */
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* The browser default focus ring disappears on this background. */
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background rounded-sm;
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
     *,
     *::before,
     *::after {
@@ -76,45 +126,23 @@
 }
 
 @layer components {
-  .hero-gradient {
-    @apply absolute inset-0 -z-10 bg-gradient-to-b from-background to-background via-primary/5;
+  /* Page column: one measure for every page. */
+  .shell {
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-10;
   }
 
-  /* Subtle atmosphere behind inner page headers so they don't start on a flat field. */
-  .page-glow {
-    @apply pointer-events-none absolute inset-x-0 top-0 -z-10 h-80;
-    background: radial-gradient(
-      60% 100% at 20% 0%,
-      hsl(var(--primary) / 0.09),
-      transparent 70%
-    );
+  /* Small uppercase mono label. */
+  .caps {
+    @apply font-mono text-[10.5px] font-medium uppercase tracking-[0.15em] text-faint;
   }
 
-  .section-padding {
-    @apply py-12 md:py-16;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-500 hover:-translate-y-2;
-  }
-  
-  .card-hover:hover {
-    box-shadow: var(--shadow-hover);
-  }
-  
-  .gradient-card {
-    background: var(--gradient-card);
-  }
-  
-  .skill-badge {
-    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 border border-primary/20 transition-colors duration-300 hover:bg-primary/20 hover:border-primary/40;
+  /* Status tag on project rows. */
+  .tag {
+    @apply inline-flex items-center rounded-[2px] px-2.5 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.09em];
   }
 
-  .section-header {
-    @apply flex items-center gap-3 mb-8 pb-4 border-b border-border/50;
-  }
-
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  /* Dash marker list item (editorial bullet). */
+  .dash-item {
+    @apply relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:h-[1.5px] before:w-1.5 before:content-[''];
   }
 }
