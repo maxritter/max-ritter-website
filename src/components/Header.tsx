@@ -30,8 +30,20 @@ const Header = () => {
   return (
     <header className="relative z-50">
       <div className="shell flex items-center justify-between pt-7">
-        <Link to="/" className="text-sm font-semibold tracking-[-0.01em]">
-          Max Ritter
+        <Link to="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-[-0.01em]">
+          <picture>
+            <source srcSet="/mark.webp" type="image/webp" />
+            <img
+              src="/mark.png"
+              alt=""
+              aria-hidden="true"
+              width={32}
+              height={30}
+              decoding="async"
+              className="h-[30px] w-8"
+            />
+          </picture>
+          <span>Max Ritter</span>
         </Link>
 
         {/* Desktop navigation */}
