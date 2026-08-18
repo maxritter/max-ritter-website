@@ -5,7 +5,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { products, productSchema, type ProductStatus } from "@/data/products";
+import { clientTenures, engagementCount, firstEngagementYear } from "@/data/work";
 import { pageVariants } from "@/utils/animations";
+
+const CONTACT_URL = "mailto:mail@maxritter.net";
+
+/**
+ * The month you are next free for new work, e.g. "March 2026".
+ * Leave null to hide the availability line entirely.
+ */
+const AVAILABLE_FROM: string | null = null;
 
 const clients = [
   "Dialpad",
@@ -30,7 +39,7 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 const Index = () => {
@@ -83,9 +92,28 @@ const Index = () => {
             </p>
           </motion.div>
 
+          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3.5">
+            <a
+              href={CONTACT_URL}
+              className="inline-flex h-11 items-center gap-2 rounded-[3px] bg-primary px-[18px] text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 md:h-10"
+            >
+              Get in touch
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            {AVAILABLE_FROM && (
+              <span className="inline-flex items-center gap-2.5 font-mono text-[12.5px] text-muted-foreground">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>
+                  Available for new engagements from{" "}
+                  <span className="text-foreground">{AVAILABLE_FROM}</span>
+                </span>
+              </span>
+            )}
+          </motion.div>
+
           <motion.div
             variants={fadeUp}
-            className="mb-16 mt-12 flex flex-wrap items-baseline gap-x-4 gap-y-1.5 rounded-[3px] border border-border px-[18px] py-4 font-mono text-[13px] text-muted-foreground md:mb-20"
+            className="mb-16 mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1.5 rounded-[3px] border border-border px-[18px] py-4 font-mono text-[13px] text-muted-foreground md:mb-20"
           >
             <span className="text-[10.5px] font-medium uppercase tracking-[0.15em] text-primary">
               Now
@@ -109,14 +137,43 @@ const Index = () => {
             </span>
           </motion.div>
 
-          <motion.section variants={fadeUp} aria-labelledby="clients-heading" className="border-y border-border py-5">
-            <h2 id="clients-heading" className="caps mb-3">
-              Selected clients
-            </h2>
-            <ul className="flex flex-wrap items-center gap-x-7 gap-y-2.5 text-[15px] text-muted-foreground">
-              {clients.map((client) => (
-                <li key={client}>{client}</li>
-              ))}
+          <motion.section
+            variants={fadeUp}
+            aria-labelledby="clients-heading"
+            className="border-y border-border py-[22px]"
+          >
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h2 id="clients-heading" className="caps">
+                Selected clients
+              </h2>
+              <Link
+                to="/work"
+                className="group inline-flex items-center gap-1.5 font-mono text-[11px] text-faint transition-colors hover:text-foreground"
+              >
+                {engagementCount} engagements since {firstEngagementYear}
+                <ArrowUpRight
+                  className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
+            <ul className="flex flex-wrap gap-x-8 gap-y-3.5 md:gap-x-10">
+              {clients.map((client) => {
+                const tenure = clientTenures[client];
+                return (
+                  <li key={client} className="flex flex-col gap-[3px]">
+                    <span className="text-[19px] font-medium leading-tight tracking-[-0.015em]">
+                      {client}
+                    </span>
+                    {tenure && (
+                      <span className="font-mono text-[11px] text-faint">
+                        {tenure.period}
+                        {tenure.count > 1 && ` \u00b7 \u00d7${tenure.count}`}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </motion.section>
 

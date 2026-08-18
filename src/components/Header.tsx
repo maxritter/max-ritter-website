@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,6 +11,7 @@ const navItems = [
 ];
 
 const BLOG_URL = "https://maxritter.bloggi.co/";
+const CONTACT_URL = "mailto:mail@maxritter.net";
 
 const menuVariants = {
   closed: { opacity: 0, y: -12, transition: { duration: 0.2 } },
@@ -46,41 +47,51 @@ const Header = () => {
           <span>Max Ritter</span>
         </Link>
 
-        {/* Desktop navigation */}
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === "/"}
-              className={({ isActive }) =>
-                `py-2.5 text-sm transition-colors ${
-                  isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                }`
-              }
+        <div className="flex items-center gap-4 md:gap-7">
+          {/* Desktop navigation */}
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  `py-2.5 text-sm transition-colors ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item.label}
-            </NavLink>
-          ))}
-          <a
-            href={BLOG_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Blog
-          </a>
-        </nav>
+              Blog
+            </a>
+          </nav>
 
-        {/* Mobile menu button */}
-        <button
-          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors hover:text-primary md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <a
+            href={CONTACT_URL}
+            className="inline-flex h-11 items-center gap-[7px] rounded-[3px] bg-primary px-3.5 text-sm font-medium tracking-[-0.01em] text-primary-foreground transition-opacity hover:opacity-90 md:h-9"
+          >
+            Get in touch
+            <ArrowUpRight className="h-[15px] w-[15px]" aria-hidden="true" />
+          </a>
+
+          {/* Mobile menu button */}
+          <button
+            className="-mr-2 flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors hover:text-primary md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile navigation */}
