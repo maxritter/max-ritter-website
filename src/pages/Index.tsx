@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { products, productSchema, type ProductStatus } from "@/data/products";
-import { clientTenures, engagementCount, firstEngagementYear } from "@/data/work";
 import { pageVariants } from "@/utils/animations";
 
 const CONTACT_URL = "mailto:mail@maxritter.net";
@@ -68,52 +67,74 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <motion.div className="shell" variants={container} initial="hidden" animate="show">
-          <motion.h1
-            variants={fadeUp}
-            className="mt-16 max-w-[19ch] text-[clamp(2.5rem,7.5vw,4.75rem)] font-medium leading-[1.03] tracking-[-0.034em] md:mt-24"
-          >
-            I build the data, cloud and AI systems companies{" "}
-            <span className="text-primary">actually run on.</span>
-          </motion.h1>
+          <div className="mt-16 items-start md:mt-[88px] md:grid md:grid-cols-[1fr_176px] md:gap-x-[72px]">
+            <div>
+              <motion.h1
+                variants={fadeUp}
+                className="max-w-[19ch] text-[clamp(2.5rem,5.5vw,4.25rem)] font-medium leading-[1.03] tracking-[-0.034em]"
+              >
+                I build the data, cloud and AI systems companies{" "}
+                <span className="text-primary">actually run on.</span>
+              </motion.h1>
 
-          <motion.div variants={fadeUp} className="mt-7 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-            <p>
-              Senior IT freelancer in Germany {"\u2014"}{" "}
-              <strong className="font-medium text-foreground">
-                agentic AI, data, cloud and DevOps engineering
-              </strong>{" "}
-              for startups, Mittelstand and global corporates.
-            </p>
-            <p className="mt-3">
-              High-level and hands-on:{" "}
-              <strong className="font-medium text-foreground">
-                I design the architecture and I ship the code.
-              </strong>
-            </p>
-          </motion.div>
+              <motion.div variants={fadeUp} className="mt-7 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Senior IT freelancer in Germany {"\u2014"}{" "}
+                  <strong className="font-medium text-foreground">
+                    agentic AI, data, cloud and DevOps engineering
+                  </strong>{" "}
+                  for startups, Mittelstand and global corporates.
+                </p>
+                <p className="mt-3">
+                  High-level and hands-on:{" "}
+                  <strong className="font-medium text-foreground">
+                    I design the architecture and I ship the code.
+                  </strong>
+                </p>
+              </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3.5">
-            <a
-              href={CONTACT_URL}
-              className="inline-flex h-11 items-center gap-2 rounded-[3px] bg-primary px-[18px] text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 md:h-10"
-            >
-              Get in touch
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            {AVAILABLE_FROM && (
-              <span className="inline-flex items-center gap-2.5 font-mono text-[12.5px] text-muted-foreground">
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                <span>
-                  Available for new engagements from{" "}
-                  <span className="text-foreground">{AVAILABLE_FROM}</span>
-                </span>
-              </span>
-            )}
-          </motion.div>
+              <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3.5">
+                <a
+                  href={CONTACT_URL}
+                  className="inline-flex h-11 items-center gap-2 rounded-[3px] bg-primary px-[18px] text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 md:h-10"
+                >
+                  Get in touch
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                {AVAILABLE_FROM && (
+                  <span className="inline-flex items-center gap-2.5 font-mono text-[12.5px] text-muted-foreground">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                    <span>
+                      Available for new engagements from{" "}
+                      <span className="text-foreground">{AVAILABLE_FROM}</span>
+                    </span>
+                  </span>
+                )}
+              </motion.div>
+            </div>
+
+            <motion.figure variants={fadeUp} className="mt-10 flex flex-col gap-2.5 md:mt-1.5">
+              <picture>
+                <source srcSet="/profile.webp" type="image/webp" />
+                <img
+                  src="/profile.png"
+                  alt="Max Ritter"
+                  width={176}
+                  height={176}
+                  decoding="async"
+                  className="block h-44 w-44 rounded-[3px] border border-border object-cover"
+                />
+              </picture>
+              <figcaption className="flex flex-col gap-[2px] font-mono text-[11px] text-faint">
+                <span>Max Ritter</span>
+                <span>Freelance since 2021</span>
+              </figcaption>
+            </motion.figure>
+          </div>
 
           <motion.div
             variants={fadeUp}
-            className="mb-16 mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1.5 rounded-[3px] border border-border px-[18px] py-4 font-mono text-[13px] text-muted-foreground md:mb-20"
+            className="mb-16 mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1.5 rounded-[3px] border border-border px-[18px] py-4 font-mono text-[13px] text-muted-foreground md:mb-20"
           >
             <span className="text-[10.5px] font-medium uppercase tracking-[0.15em] text-primary">
               Now
@@ -125,7 +146,7 @@ const Index = () => {
             <span className="text-faint" aria-hidden="true">
               /
             </span>
-            <span>
+            <span className="md:whitespace-nowrap">
               building{" "}
               <Link
                 to="/projects#pilot-shell"
@@ -135,6 +156,19 @@ const Index = () => {
               </Link>{" "}
               in the open
             </span>
+            <span className="text-faint" aria-hidden="true">
+              /
+            </span>
+            <span className="md:whitespace-nowrap">
+              shipping{" "}
+              <Link
+                to="/projects#bahnsparer"
+                className="font-medium text-foreground transition-colors hover:text-primary"
+              >
+                Bahnsparer
+              </Link>{" "}
+              for mobile and desktop
+            </span>
           </motion.div>
 
           <motion.section
@@ -142,38 +176,18 @@ const Index = () => {
             aria-labelledby="clients-heading"
             className="border-y border-border py-[22px]"
           >
-            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h2 id="clients-heading" className="caps">
-                Selected clients
-              </h2>
-              <Link
-                to="/work"
-                className="group inline-flex items-center gap-1.5 font-mono text-[11px] text-faint transition-colors hover:text-foreground"
-              >
-                {engagementCount} engagements since {firstEngagementYear}
-                <ArrowUpRight
-                  className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
-              </Link>
-            </div>
-            <ul className="flex flex-wrap gap-x-8 gap-y-3.5 md:gap-x-10">
-              {clients.map((client) => {
-                const tenure = clientTenures[client];
-                return (
-                  <li key={client} className="flex flex-col gap-[3px]">
-                    <span className="text-[19px] font-medium leading-tight tracking-[-0.015em]">
-                      {client}
-                    </span>
-                    {tenure && (
-                      <span className="font-mono text-[11px] text-faint">
-                        {tenure.period}
-                        {tenure.count > 1 && ` \u00b7 \u00d7${tenure.count}`}
-                      </span>
-                    )}
-                  </li>
-                );
-              })}
+            <h2 id="clients-heading" className="caps mb-4">
+              Selected clients
+            </h2>
+            <ul className="flex flex-wrap gap-x-7 gap-y-2 md:justify-between md:gap-x-4">
+              {clients.map((client) => (
+                <li
+                  key={client}
+                  className="whitespace-nowrap text-[clamp(13px,1.55vw,17px)] font-medium leading-[1.25] tracking-[-0.015em]"
+                >
+                  {client}
+                </li>
+              ))}
             </ul>
           </motion.section>
 

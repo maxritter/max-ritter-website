@@ -35,7 +35,7 @@ export const products: Product[] = [
     status: "live",
     statusLabel: "Live product",
     summary:
-      "My own engineering framework: spec-driven development, enforced TDD and quality gates for Claude Code and Codex CLI. 1.8k stars.",
+      "My own engineering framework for Claude Code and Codex CLI: spec-driven planning, goal-and-loop builds, enforced TDD and persistent memory. 2k stars.",
     description:
       "Coding agents write fast but skip tests, lose context and drift. Pilot Shell installs on top of Claude Code and Codex CLI and adds the structure they lack: /prd shapes an idea into requirements, /spec plans and verifies a feature end-to-end with TDD, /build loops build-and-judge until every acceptance criterion passes, and /fix resolves bugs at the root cause with a reproducing test. Quality hooks lint, format and type-check every edit; persistent memory carries decisions across sessions; everything stays on your machine.",
     facts: ["1.8k+ GitHub stars", "macOS / Linux / WSL2", "Claude Code & Codex CLI"],
@@ -55,13 +55,13 @@ export const products: Product[] = [
     slug: "bahnsparer",
     name: "Bahnsparer",
     tagline: "Günstiger ans Ziel - fare alerts for German rail",
-    status: "beta",
-    statusLabel: "Public beta",
+    status: "live",
+    statusLabel: "Live product",
     summary:
-      "iOS and Android app that watches Deutsche Bahn fares and tells you when your trip gets cheaper.",
+      "Compares German rail fares, travel time and past punctuality, alerts you on new low prices and follows your trip live \u2014 iOS, Android, macOS, Windows and Linux.",
     description:
       "Bahnsparer watches Deutsche Bahn Sparpreis fares so you don't have to. Fix your travel day and it monitors exactly that day in the background, notifying you on every new low - and warning you when the cheap contingent sells out. Stay flexible and a four-week calendar shows the cheapest fare for every day at a glance, with DB and FlixTrain ranked in one list and each train's punctuality record next to its price.",
-    facts: ["iOS & Android", "Free, no account", "Data stays on device"],
+    facts: ["iOS, Android & desktop", "Free, no account", "Data stays on device"],
     inBox: [
       "Background price monitoring with alerts",
       "Four-week price calendar",
@@ -71,7 +71,7 @@ export const products: Product[] = [
     ],
     website: { url: "https://bahnsparer.de/", label: "bahnsparer.de" },
     applicationCategory: "TravelApplication",
-    operatingSystem: "iOS, Android",
+    operatingSystem: "iOS, Android, macOS, Windows, Linux",
   },
   {
     slug: "diy-thermocam",
