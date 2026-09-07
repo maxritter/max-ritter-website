@@ -66,12 +66,29 @@ function startServer() {
   });
 }
 
-async function prerender() {
-  const server = await startServer();
-  const browser = await puppeteer.launch({
+/**
+ * Vercel's build image has no shared libraries for Chrome for Testing, so
+ * there we run the Lambda-compatible Chromium shipped by @sparticuz/chromium.
+ * Everywhere else Puppeteer's own download (or PUPPETEER_EXECUTABLE_PATH) is used.
+ */
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const chromium = require('@sparticuz/chromium');
+    return puppeteer.launch({
+      headless: true,
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+    });
+  }
+  return puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
+}
+
+async function prerender() {
+  const server = await startServer();
+  const browser = await launchBrowser();
 
   try {
     for (const route of ROUTES) {
