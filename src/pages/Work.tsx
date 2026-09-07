@@ -9,7 +9,7 @@ import { pageVariants } from "@/utils/animations";
 const Work = () => {
   return (
     <motion.div
-      className="flex min-h-screen flex-col bg-background"
+      className="flex min-h-screen flex-col"
       initial="initial"
       animate="in"
       exit="out"
@@ -18,7 +18,7 @@ const Work = () => {
       <SEO
         title={"Work \u2014 Client Engagements & Career | Max Ritter"}
         description={
-          "Nine years across five roles: first engineer, team lead, co-founder and CTO, consultant, freelancer. Engagements for Dialpad, Boehringer Ingelheim, Porsche, Hubert Burda Media, Marc O'Polo and Climeworks."
+          "Twelve engagements since 2017 as first engineer, team lead, co-founder and CTO, consultant and freelancer: Dialpad, Boehringer Ingelheim, Porsche, Hubert Burda Media, Marc O'Polo, Climeworks and more."
         }
         pagePath="work"
         breadcrumbs={[
@@ -30,10 +30,10 @@ const Work = () => {
       <main className="flex-grow">
         <div className="shell pt-12 md:pt-16">
           <PageHeader
-            title="Nine years,"
-            accent="five hats."
+            title="Where I've worked,"
+            accent="and what I built there."
             subtitle={
-              "I've worked as first engineer, team lead, co-founder and CTO, consultant, and freelancer. Here is the full history, and what I built at each stop."
+              "Twelve engagements since 2017, from a Munich AI startup to Porsche, Boehringer Ingelheim and Dialpad. Along the way: first engineer, team lead, co-founder and CTO, consultant, and freelancer since 2021."
             }
           />
 

@@ -10,7 +10,7 @@ import { pageVariants } from "@/utils/animations";
 const Skills = () => {
   return (
     <motion.div
-      className="flex min-h-screen flex-col bg-background"
+      className="flex min-h-screen flex-col"
       initial="initial"
       animate="in"
       exit="out"
@@ -19,7 +19,7 @@ const Skills = () => {
       <SEO
         title={"Skills \u2014 AI, Data, Cloud & DevOps Engineering | Max Ritter"}
         description={
-          "Agentic AI engineering, data engineering, cloud and DevOps. AWS Professional certifications, M.Sc. Computer Engineering. Deep where it counts, wide where it helps."
+          "Agentic AI engineering on ten years of cloud, data, DevOps and embedded work. AWS Professional certifications, M.Sc. Computer Engineering."
         }
         pagePath="skills"
         breadcrumbs={[
@@ -31,10 +31,10 @@ const Skills = () => {
       <main className="flex-grow">
         <div className="shell pt-12 md:pt-16">
           <PageHeader
-            title="Deep where it counts,"
-            accent="wide where it helps."
+            title="Agentic systems today,"
+            accent="cloud and data underneath."
             subtitle={
-              "Current depth is agentic systems; underneath sits a decade of cloud, data, DevOps and embedded engineering. Certified on the infrastructure the agents run on."
+              "Most of my current work is agentic engineering. It sits on ten years of cloud, data, DevOps and embedded work, and on AWS Professional certifications for the infrastructure those agents run on."
             }
           />
 

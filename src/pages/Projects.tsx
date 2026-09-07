@@ -20,7 +20,7 @@ const itemListSchema = {
 const Projects = () => {
   return (
     <motion.div
-      className="flex min-h-screen flex-col bg-background"
+      className="flex min-h-screen flex-col"
       initial="initial"
       animate="in"
       exit="out"
@@ -29,7 +29,7 @@ const Projects = () => {
       <SEO
         title={"Projects \u2014 Pilot Shell, Bahnsparer & DIY-Thermocam | Max Ritter"}
         description={
-          "Products and open source by Max Ritter: Pilot Shell, spec-driven development for Claude Code and Codex CLI; Bahnsparer, Deutsche Bahn fare alerts for iOS and Android; DIY-Thermocam, an open-source FLIR Lepton thermal imaging camera."
+          "Products and open source by Max Ritter: Pilot Shell, context and harness engineering for Claude Code and Codex; Bahnsparer, fares, reliability and live journeys for German rail on iOS, Android and desktop; DIY-Thermocam, an open-source FLIR Lepton thermal imaging camera."
         }
         pagePath="projects"
         keywords={
@@ -48,7 +48,7 @@ const Projects = () => {
             title="Things I build"
             accent="myself."
             subtitle={
-              "Products and open source I run alongside client work. Pilot Shell is the engineering framework I use on every engagement."
+              "Products and open source I run alongside client work. Pilot Shell is the harness I use on every engagement."
             }
           />
 

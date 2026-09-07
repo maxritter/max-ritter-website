@@ -32,18 +32,15 @@ const Header = () => {
     <header className="relative z-50">
       <div className="shell flex items-center justify-between pt-7">
         <Link to="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-[-0.01em]">
-          <picture>
-            <source srcSet="/mark.webp" type="image/webp" />
-            <img
-              src="/mark.png"
-              alt=""
-              aria-hidden="true"
-              width={32}
-              height={30}
-              decoding="async"
-              className="h-[30px] w-8"
-            />
-          </picture>
+          <img
+            src="/mark.svg"
+            alt=""
+            aria-hidden="true"
+            width={32}
+            height={28}
+            decoding="async"
+            className="h-7 w-8"
+          />
           <span>Max Ritter</span>
         </Link>
 
@@ -76,7 +73,7 @@ const Header = () => {
 
           <a
             href={CONTACT_URL}
-            className="inline-flex h-11 items-center gap-[7px] rounded-[3px] bg-primary px-3.5 text-sm font-medium tracking-[-0.01em] text-primary-foreground transition-opacity hover:opacity-90 md:h-9"
+            className="inline-flex h-11 items-center gap-[7px] rounded-full bg-primary px-4 text-sm font-medium tracking-[-0.01em] text-primary-foreground transition-colors hover:bg-primary-glow md:h-9"
           >
             Get in touch
             <ArrowUpRight className="h-[15px] w-[15px]" aria-hidden="true" />

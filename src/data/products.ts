@@ -35,16 +35,16 @@ export const products: Product[] = [
     status: "live",
     statusLabel: "Live product",
     summary:
-      "My own engineering framework for Claude Code and Codex CLI: spec-driven planning, goal-and-loop builds, enforced TDD and persistent memory. 2k stars.",
+      "A context and harness engineering system around Claude Code and Codex: persistent knowledge, enforced quality gates and runtime proof, installed with one command. 2k+ GitHub stars.",
     description:
-      "Coding agents write fast but skip tests, lose context and drift. Pilot Shell installs on top of Claude Code and Codex CLI and adds the structure they lack: /prd shapes an idea into requirements, /spec plans and verifies a feature end-to-end with TDD, /build loops build-and-judge until every acceptance criterion passes, and /fix resolves bugs at the root cause with a reproducing test. Quality hooks lint, format and type-check every edit; persistent memory carries decisions across sessions; everything stays on your machine.",
-    facts: ["1.8k+ GitHub stars", "macOS / Linux / WSL2", "Claude Code & Codex CLI"],
+      "Claude Code and Codex write code fast. Pilot Shell is the harness around them that makes the output production-grade: quality gates on every layer, memory that survives sessions and travels through the repo, code intelligence in the toolchain, and runtime proof before anything counts as done.",
+    facts: ["2k+ GitHub stars", "macOS / Linux / WSL2", "Claude Code & Codex"],
     inBox: [
-      "Workflows: /prd, /spec, /build, /fix - TDD enforced",
-      "Quality hooks on every edit",
-      "Persistent memory + semantic code search",
-      "Local console: specs, sessions, diffs, usage",
-      "MCP & LSP servers pre-wired",
+      "Quality hooks and review gates on every layer",
+      "Memory that persists and is shared through the repo",
+      "Semble semantic search and CodeGraph",
+      "Runtime proof: tests, builds, browser, device",
+      "Console for plan and diff review",
     ],
     website: { url: "https://pilot-shell.com/", label: "pilot-shell.com" },
     repo: { url: "https://github.com/maxritter/pilot-shell", label: "GitHub" },
@@ -54,20 +54,20 @@ export const products: Product[] = [
   {
     slug: "bahnsparer",
     name: "Bahnsparer",
-    tagline: "Günstiger ans Ziel - fare alerts for German rail",
+    tagline: "Fares, reliability and live journeys for German rail",
     status: "live",
     statusLabel: "Live product",
     summary:
-      "Compares German rail fares, travel time and past punctuality, alerts you on new low prices and follows your trip live \u2014 iOS, Android, macOS, Windows and Linux.",
+      "Compares German rail fares, travel time and historical reliability, watches prices for a day or a range, follows the booked trip live and prepares a possible passenger-rights claim. iOS, Android and desktop.",
     description:
-      "Bahnsparer watches Deutsche Bahn Sparpreis fares so you don't have to. Fix your travel day and it monitors exactly that day in the background, notifying you on every new low - and warning you when the cheap contingent sells out. Stay flexible and a four-week calendar shows the cheapest fare for every day at a glance, with DB and FlixTrain ranked in one list and each train's punctuality record next to its price.",
+      "Bahnsparer compares fares, travel time and historical reliability across operators, then watches a fixed day or a range of up to 14 days for a better price. After booking, it follows the trip live, records the arrival and prepares the facts for a possible passenger-rights claim. Every request runs on your device, and there is no account.",
     facts: ["iOS, Android & desktop", "Free, no account", "Data stays on device"],
     inBox: [
-      "Background price monitoring with alerts",
-      "Four-week price calendar",
-      "Split tickets, Deutschlandticket, BahnCard math",
-      "DB and FlixTrain in one ranked list",
-      "No account, no tracking",
+      "Price, travel time and reliability in one comparison",
+      "Alerts for a fixed day, a range or a recurring trip",
+      "Live trip: times, platforms, transfer risk, alternatives",
+      "Recorded arrival and passenger-rights claim prep",
+      "No account, no fare-search backend",
     ],
     website: { url: "https://bahnsparer.de/", label: "bahnsparer.de" },
     applicationCategory: "TravelApplication",
@@ -80,10 +80,10 @@ export const products: Product[] = [
     status: "open",
     statusLabel: "Open source",
     summary:
-      "An open-source thermal imaging camera built around the FLIR Lepton sensor. 1.2k stars, 179 forks.",
+      "An open-source thermal imaging camera built around the FLIR Lepton sensor. 1.2k stars, 181 forks.",
     description:
-      "A do-it-yourself thermal imager built around the FLIR Lepton sensor - firmware, PCB, enclosure and a full desktop suite, all public. Designed as a self-assembly kit buildable at home with standard tools; used for finding heat leaks, analysing electronics, and drone-mounted capture. It began as my bachelor thesis and became a platform used by makers, schools and companies.",
-    facts: ["1.2k+ GitHub stars", "179 forks", "C/C++ · FLIR Lepton"],
+      "A do-it-yourself thermal imager around the FLIR Lepton sensor: firmware, PCB, enclosure and desktop suite, all public and buildable at home with standard tools. It began as my bachelor thesis and is now used by makers, schools and companies.",
+    facts: ["1.2k+ GitHub stars", "181 forks", "C/C++ · FLIR Lepton"],
     inBox: [
       "Open firmware for FLIR Lepton 2.5 / 3.1R / 3.5",
       "Custom PCB and self-assembly enclosure",

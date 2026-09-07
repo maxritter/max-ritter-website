@@ -48,41 +48,43 @@
 
 @layer base {
   :root {
-    /* Editorial dark palette (derived from the approved oklch draft). */
-    --background: 211 13% 4%;
-    --foreground: 211 12% 96%;
+    /* Deep-field blue palette, sampled from the brand banner. */
+    --background: 218 70% 6%;
+    --foreground: 214 40% 96%;
 
-    --card: 211 11% 7%;
-    --card-foreground: 211 12% 96%;
+    --card: 218 55% 9%;
+    --card-foreground: 214 40% 96%;
 
-    --popover: 211 11% 7%;
-    --popover-foreground: 211 12% 96%;
+    --popover: 218 55% 9%;
+    --popover-foreground: 214 40% 96%;
 
-    /* Amber: the single signal color. */
-    --primary: 34 91% 60%;
-    --primary-foreground: 31 91% 7%;
+    /* Sky blue: the single signal color (the banner's highlighted chip). */
+    --primary: 212 100% 74%;
+    --primary-foreground: 220 70% 8%;
+    /* Ice: the white-blue core of the banner's light line. */
+    --primary-glow: 205 100% 88%;
 
-    --secondary: 211 9% 11%;
-    --secondary-foreground: 211 12% 96%;
+    --secondary: 218 45% 12%;
+    --secondary-foreground: 214 40% 96%;
 
-    --muted: 211 9% 11%;
-    --muted-foreground: 211 3% 63%;
+    --muted: 218 45% 12%;
+    --muted-foreground: 215 20% 68%;
 
-    /* Cyan: the secondary meaning color. */
-    --accent: 186 63% 63%;
-    --accent-foreground: 211 13% 4%;
+    /* Electric blue: the secondary meaning color (chip outlines, light line). */
+    --accent: 214 95% 60%;
+    --accent-foreground: 220 70% 8%;
 
     /* Quieter-than-muted ink for mono labels and metadata. */
-    --faint: 211 3% 53%;
+    --faint: 215 16% 56%;
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 211 12% 96%;
+    --destructive-foreground: 214 40% 96%;
 
-    --border: 211 7% 15%;
-    --input: 211 9% 11%;
-    --ring: 34 91% 60%;
+    --border: 218 45% 17%;
+    --input: 218 45% 12%;
+    --ring: 212 100% 74%;
 
-    --radius: 0.1875rem;
+    --radius: 0.75rem;
   }
 }
 
@@ -93,12 +95,28 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     text-wrap: pretty;
+    accent-color: hsl(var(--primary));
+    caret-color: hsl(var(--primary));
+  }
+
+  /* Ambient: the banner's blue field, fixed behind every page. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(70% 55% at 0% 0%, hsl(218 70% 22% / 0.55), transparent 70%),
+      radial-gradient(55% 50% at 100% 100%, hsl(214 85% 26% / 0.45), transparent 70%);
   }
 
   ::selection {
@@ -136,13 +154,59 @@
     @apply font-mono text-[10.5px] font-medium uppercase tracking-[0.15em] text-faint;
   }
 
-  /* Status tag on project rows. */
+  /* Status chip on project rows: the banner's outlined pill. */
   .tag {
-    @apply inline-flex items-center rounded-[2px] px-2.5 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.09em];
+    @apply inline-flex items-center rounded-full border px-3 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.09em];
+  }
+
+  /* Chip: the banner's outlined pill, used for the Now strip. */
+  .chip {
+    @apply inline-flex min-h-10 max-w-full items-center gap-2.5 rounded-full border border-accent/40 bg-card/70 px-4 py-2 font-mono text-[12.5px] leading-snug text-muted-foreground transition-colors hover:border-primary hover:text-foreground;
   }
 
   /* Dash marker list item (editorial bullet). */
   .dash-item {
     @apply relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:h-[1.5px] before:w-1.5 before:content-[''];
+  }
+
+  /* Headline accent: the banner's ice-to-blue lettering. */
+  .ink-blue {
+    color: hsl(var(--primary));
+    background-image: linear-gradient(100deg, hsl(var(--primary-glow)) 0%, hsl(var(--primary)) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .ink-blue::selection {
+    -webkit-text-fill-color: hsl(var(--primary-foreground));
+  }
+
+  /* Horizon: the banner's light line, one authored moment per page. */
+  .horizon {
+    position: relative;
+  }
+  .horizon::before,
+  .horizon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent)) 22%,
+      hsl(var(--primary-glow)) 50%,
+      hsl(var(--accent)) 78%,
+      transparent 100%
+    );
+  }
+  .horizon::after {
+    top: -1px;
+    height: 3px;
+    filter: blur(6px);
+    opacity: 0.75;
   }
 }

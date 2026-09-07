@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles, Terminal, TrainFront } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,9 +26,9 @@ const clients = [
 ];
 
 const tagClasses: Record<ProductStatus, string> = {
-  live: "bg-primary text-primary-foreground",
-  beta: "bg-accent/15 text-accent",
-  open: "bg-secondary text-faint",
+  live: "border-primary bg-primary text-primary-foreground",
+  beta: "border-accent/60 bg-accent/10 text-primary",
+  open: "border-border text-muted-foreground",
 };
 
 const container = {
@@ -44,7 +44,7 @@ const fadeUp = {
 const Index = () => {
   return (
     <motion.div
-      className="flex min-h-screen flex-col bg-background"
+      className="flex min-h-screen flex-col"
       initial="initial"
       animate="in"
       exit="out"
@@ -74,7 +74,7 @@ const Index = () => {
                 className="max-w-[19ch] text-[clamp(2.5rem,5.5vw,4.25rem)] font-medium leading-[1.03] tracking-[-0.034em]"
               >
                 I build the data, cloud and AI systems companies{" "}
-                <span className="text-primary">actually run on.</span>
+                <span className="ink-blue">actually run on.</span>
               </motion.h1>
 
               <motion.div variants={fadeUp} className="mt-7 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
@@ -96,7 +96,7 @@ const Index = () => {
               <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3.5">
                 <a
                   href={CONTACT_URL}
-                  className="inline-flex h-11 items-center gap-2 rounded-[3px] bg-primary px-[18px] text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 md:h-10"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-[22px] text-[15px] font-medium text-primary-foreground transition-colors hover:bg-primary-glow md:h-10"
                 >
                   Get in touch
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -122,7 +122,7 @@ const Index = () => {
                   width={176}
                   height={176}
                   decoding="async"
-                  className="block h-44 w-44 rounded-[3px] border border-border object-cover"
+                  className="block h-44 w-44 rounded-xl border border-border object-cover"
                 />
               </picture>
               <figcaption className="flex flex-col gap-[2px] font-mono text-[11px] text-faint">
@@ -132,49 +132,39 @@ const Index = () => {
             </motion.figure>
           </div>
 
-          <motion.div
+          <motion.section
             variants={fadeUp}
-            className="mb-16 mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1.5 rounded-[3px] border border-border px-[18px] py-4 font-mono text-[13px] text-muted-foreground md:mb-20"
+            aria-labelledby="now-heading"
+            className="mb-16 mt-10 flex flex-wrap items-center gap-x-3 gap-y-2.5 md:mb-20"
           >
-            <span className="text-[10.5px] font-medium uppercase tracking-[0.15em] text-primary">
+            <h2 id="now-heading" className="caps mr-1 text-primary">
               Now
-            </span>
-            <span>
-              <strong className="font-medium text-foreground">AI Technical Advisor, Dialpad</strong>{" "}
-              {"\u2014"} agentic enablement for telephony engineering
-            </span>
-            <span className="text-faint" aria-hidden="true">
-              /
-            </span>
-            <span className="md:whitespace-nowrap">
-              building{" "}
-              <Link
-                to="/projects#pilot-shell"
-                className="font-medium text-foreground transition-colors hover:text-primary"
-              >
-                Pilot Shell
-              </Link>{" "}
-              in the open
-            </span>
-            <span className="text-faint" aria-hidden="true">
-              /
-            </span>
-            <span className="md:whitespace-nowrap">
-              shipping{" "}
-              <Link
-                to="/projects#bahnsparer"
-                className="font-medium text-foreground transition-colors hover:text-primary"
-              >
-                Bahnsparer
-              </Link>{" "}
-              for mobile and desktop
-            </span>
-          </motion.div>
+            </h2>
+            <Link to="/work" className="chip">
+              <Sparkles className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+              <span>
+                <strong className="font-medium text-foreground">AI Technical Advisor</strong>, Dialpad
+              </span>
+            </Link>
+            <Link to="/projects#pilot-shell" className="chip">
+              <Terminal className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+              <span>
+                Building <strong className="font-medium text-foreground">Pilot Shell</strong> in the open
+              </span>
+            </Link>
+            <Link to="/projects#bahnsparer" className="chip">
+              <TrainFront className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+              <span>
+                Shipping <strong className="font-medium text-foreground">Bahnsparer</strong> for mobile and
+                desktop
+              </span>
+            </Link>
+          </motion.section>
 
           <motion.section
             variants={fadeUp}
             aria-labelledby="clients-heading"
-            className="border-y border-border py-[22px]"
+            className="horizon border-b border-border py-[22px]"
           >
             <h2 id="clients-heading" className="caps mb-4">
               Selected clients

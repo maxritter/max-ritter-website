@@ -15,7 +15,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Page Not Found (404) | Max Ritter</title>
         <meta name="robots" content="noindex, follow" />

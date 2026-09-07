@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 interface PageHeaderProps {
   /** Leading, ink-colored part of the headline. */
   title: string;
-  /** Trailing, amber part of the headline. */
+  /** Trailing, blue part of the headline. */
   accent?: string;
   subtitle?: string;
 }
@@ -29,7 +29,7 @@ const PageHeader = ({ title, accent, subtitle }: PageHeaderProps) => {
         {accent && (
           <>
             {" "}
-            <span className="text-primary">{accent}</span>
+            <span className="ink-blue">{accent}</span>
           </>
         )}
       </h1>

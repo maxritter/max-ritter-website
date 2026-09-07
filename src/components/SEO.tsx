@@ -18,7 +18,7 @@ interface SEOProps {
 }
 
 const SITE_URL = "https://www.maxritter.net";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 const buildPageUrl = (pagePath: string): string =>
   pagePath ? `${SITE_URL}/${pagePath}` : `${SITE_URL}/`;
 const DEFAULT_KEYWORDS =
@@ -110,7 +110,7 @@ const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={DEFAULT_OG_IMAGE} />
       <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="574" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={"Max Ritter \u2014 Data, Cloud & AI Systems Engineer"} />
       <meta property="og:site_name" content="Max Ritter" />
       <meta property="og:locale" content="en_US" />

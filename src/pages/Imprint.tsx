@@ -7,7 +7,7 @@ import { pageVariants } from "@/utils/animations";
 const Imprint = () => {
   return (
     <motion.div
-      className="min-h-screen flex flex-col bg-background"
+      className="min-h-screen flex flex-col"
       initial="initial"
       animate="in"
       exit="out"

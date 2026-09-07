@@ -7,6 +7,7 @@ export const disciplines: Discipline[] = [
   {
     title: "Agentic Engineering",
     items: [
+      "Harness engineering",
       "Agentic workflows & loops",
       "Claude Code & MCP",
       "Voice & text agents",
