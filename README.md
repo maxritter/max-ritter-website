@@ -37,7 +37,7 @@ npm run dev
 
 ## Deployment
 
-The site is deployed using a custom CI/CD pipeline to ensure reliable and consistent deployments.
+The site is deployed on Vercel from the `main` branch. `vercel.json` holds the build settings, the apex-to-www redirect and the SPA rewrite; `npm run build` also prerenders every route into static HTML.
 
 ## Contact
 

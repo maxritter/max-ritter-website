@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "maxritter.net" }],
+      "destination": "https://www.maxritter.net/$1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
