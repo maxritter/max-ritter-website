@@ -73,7 +73,8 @@ function startServer() {
  */
 async function launchBrowser() {
   if (process.env.VERCEL) {
-    const chromium = require('@sparticuz/chromium');
+    // ESM-only package: the API sits on the default export when required from CJS.
+    const chromium = require('@sparticuz/chromium').default;
     return puppeteer.launch({
       headless: true,
       args: chromium.args,
