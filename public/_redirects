@@ -1,6 +1,15 @@
 # Force canonical host (apex -> www) in a single hop
 https://maxritter.net/*    https://www.maxritter.net/:splat    301!
 
+# Canonical page URLs omit the HTML extension, including direct file requests.
+/index.html       /           301!
+/projects.html    /projects   301!
+/work.html        /work       301!
+/skills.html      /skills     301!
+/imprint.html     /imprint    301!
+/privacy.html     /privacy    301!
+/terms.html       /terms      301!
+
 # Serve known prerendered pages; unknown paths retain their 404 status.
 /projects    /projects.html    200
 /work        /work.html        200
