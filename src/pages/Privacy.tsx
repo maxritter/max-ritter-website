@@ -8,7 +8,7 @@ const Privacy = () => (
   <motion.div className="min-h-screen flex flex-col" initial="initial" animate="in" exit="out" variants={pageVariants}>
     <SEO
       title="Privacy Policy | Max Ritter"
-      description="How maxritter.net uses Vercel hosting, cookie-free Umami and Ahrefs analytics, and information you send by email."
+      description="How maxritter.net uses Netlify and Vercel hosting, cookie-free Umami and Ahrefs analytics, and information you send by email."
       pagePath="privacy"
     />
     <Header />
@@ -25,10 +25,12 @@ const Privacy = () => (
 
           <h2 className="text-2xl font-bold mt-6 mb-4">Hosting and server requests</h2>
           <p>
-            Vercel hosts and delivers this website. When you visit, your browser sends technical
+            Netlify delivers www.maxritter.net, and this website also has a deployment on Vercel.
+            When you visit, your browser sends technical
             information needed to deliver the page, including your IP address, the requested URL,
             and browser information. The hosting provider may process request logs to operate,
             secure, and troubleshoot its service. Details are available in
+            the <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify privacy notice</a> and
             the <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">Vercel privacy notice</a>.
           </p>
 
