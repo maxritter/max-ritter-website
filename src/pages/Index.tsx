@@ -115,12 +115,17 @@ const Index = () => {
 
             <motion.figure variants={fadeUp} className="mt-10 flex flex-col gap-2.5 md:mt-1.5">
               <picture>
-                <source srcSet="/profile.webp" type="image/webp" />
+                <source
+                  srcSet="/profile-176.webp 176w, /profile.webp 352w, /profile-528.webp 528w"
+                  sizes="176px"
+                  type="image/webp"
+                />
                 <img
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="Max Ritter"
                   width={176}
                   height={176}
+                  fetchPriority="high"
                   decoding="async"
                   className="block h-44 w-44 rounded-xl border border-border object-cover"
                 />

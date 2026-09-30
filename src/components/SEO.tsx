@@ -51,7 +51,7 @@ const SEO = ({
   };
 
   const personSchema = type === "Person" ? {
-    "image": `${SITE_URL}/profile.png`,
+    "image": `${SITE_URL}/profile.jpg`,
     "jobTitle": "IT Freelancer \u2014 AI, Data, Cloud & DevOps",
     "knowsAbout": [
       "Agentic Engineering",
