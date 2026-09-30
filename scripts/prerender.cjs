@@ -1,6 +1,6 @@
 /* Prerenders all SPA routes into static HTML files.
  *
- * Output: dist/<route>/index.html for each route (and dist/index.html for /).
+ * Output: dist/<route>.html for clean URLs, dist/index.html, and dist/404.html.
  * Each captured HTML contains Helmet's per-page <title>, meta, canonical,
  * og:*, twitter:*, ld+json, plus the rendered <h1>, body content, and
  * crawlable <a href> links. Crawlers without JS now see the full SEO surface.
@@ -9,11 +9,10 @@
 const path = require('node:path');
 const fs = require('node:fs/promises');
 const http = require('node:http');
-const puppeteer = require('puppeteer');
 
-const ROUTES = ['/', '/projects', '/work', '/skills', '/imprint', '/privacy', '/terms'];
+const ROUTES = ['/', '/projects', '/work', '/skills', '/imprint', '/privacy', '/terms', '/404'];
 const DIST_DIR = path.join(__dirname, '..', 'dist');
-const PORT = 4173;
+const PORT = Number(process.env.PRERENDER_PORT || 0);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -72,6 +71,7 @@ function startServer() {
  * Everywhere else Puppeteer's own download (or PUPPETEER_EXECUTABLE_PATH) is used.
  */
 async function launchBrowser() {
+  const { default: puppeteer } = await import('puppeteer');
   if (process.env.VERCEL) {
     // ESM-only package: the API sits on the default export when required from CJS.
     const chromium = require('@sparticuz/chromium').default;
@@ -89,9 +89,11 @@ async function launchBrowser() {
 
 async function prerender() {
   const server = await startServer();
-  const browser = await launchBrowser();
+  let browser;
 
   try {
+    browser = await launchBrowser();
+    const port = server.address().port;
     for (const route of ROUTES) {
       const page = await browser.newPage();
       await page.setUserAgent('Prerender/1.0 (Puppeteer; build-time)');
@@ -106,7 +108,7 @@ async function prerender() {
           req.continue();
         }
       });
-      await page.goto(`http://127.0.0.1:${PORT}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
+      await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
       // Wait for Helmet to inject its tags (any link with data-rh="true")
       await page.waitForFunction(
         () => document.querySelector('link[rel="canonical"][data-rh="true"]') !== null,
@@ -137,14 +139,12 @@ async function prerender() {
       const html = await page.content();
       await page.close();
 
-      const outDir = route === '/' ? DIST_DIR : path.join(DIST_DIR, route.replace(/^\//, ''));
-      await fs.mkdir(outDir, { recursive: true });
-      const outPath = path.join(outDir, 'index.html');
+      const outPath = path.join(DIST_DIR, route === '/' ? 'index.html' : `${route.slice(1)}.html`);
       await fs.writeFile(outPath, html, 'utf8');
       console.log(`✅ Prerendered ${route} → ${path.relative(DIST_DIR, outPath)}`);
     }
   } finally {
-    await browser.close();
+    if (browser) await browser.close();
     server.close();
   }
 }

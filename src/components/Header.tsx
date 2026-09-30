@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -20,13 +20,20 @@ const menuVariants = {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const menuButton = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
-  const navigateTo = (path: string) => {
-    navigate(path);
-    setIsMenuOpen(false);
-  };
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen]);
 
   return (
     <header className="relative z-50">
@@ -81,10 +88,12 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
+            ref={menuButton}
             className="-mr-2 flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors hover:text-primary md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
+            aria-controls={isMenuOpen ? "mobile-navigation" : undefined}
           >
             {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -101,12 +110,17 @@ const Header = () => {
             variants={menuVariants}
             className="absolute inset-x-0 top-full border-b border-border bg-background md:hidden"
           >
-            <nav className="shell flex flex-col py-2" aria-label="Primary mobile">
+            <nav id="mobile-navigation" className="shell flex flex-col py-2" aria-label="Primary mobile">
               {navItems.map((item) => (
-                <button
+                <NavLink
                   key={item.to}
-                  onClick={() => navigateTo(item.to)}
-                  aria-current={location.pathname === item.to ? "page" : undefined}
+                  to={item.to}
+                  end={item.to === "/"}
+                  onClick={(event) => {
+                    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                    setIsMenuOpen(false);
+                    if (location.pathname === item.to) menuButton.current?.focus();
+                  }}
                   className={`border-b border-border/60 py-3.5 text-left text-lg transition-colors ${
                     location.pathname === item.to
                       ? "font-medium text-primary"
@@ -114,7 +128,7 @@ const Header = () => {
                   }`}
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
               <a
                 href={BLOG_URL}

@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import portrait from "@/assets/portrait/profile.jpg";
+import shareImage from "@/assets/og-image.png";
 
 interface Crumb {
   name: string;
@@ -18,7 +20,7 @@ interface SEOProps {
 }
 
 const SITE_URL = "https://www.maxritter.net";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}${shareImage}`;
 const buildPageUrl = (pagePath: string): string =>
   pagePath ? `${SITE_URL}/${pagePath}` : `${SITE_URL}/`;
 const DEFAULT_KEYWORDS =
@@ -51,7 +53,9 @@ const SEO = ({
   };
 
   const personSchema = type === "Person" ? {
-    "image": `${SITE_URL}/profile.jpg`,
+    "@id": `${SITE_URL}/#person`,
+    "name": "Max Ritter",
+    "image": `${SITE_URL}${portrait}`,
     "jobTitle": "IT Freelancer \u2014 AI, Data, Cloud & DevOps",
     "knowsAbout": [
       "Agentic Engineering",
@@ -70,18 +74,27 @@ const SEO = ({
       "AWS Certified DevOps Engineer Professional",
       "AWS Certified Solutions Architect Professional",
       "AWS Certified Data Analytics Specialty"
-    ],
+    ].map(name => ({ "@type": "EducationalOccupationalCredential", name })),
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "Germany"
     }
   } : {};
 
-  const fullSchemaData = {
+  const entitySchema = {
     ...defaultSchemaData,
     ...personSchema,
     ...schemaData,
   };
+  const fullSchemaData = type === "Person" ? {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${pageUrl}#webpage`,
+    name: title,
+    description,
+    url: pageUrl,
+    mainEntity: entitySchema,
+  } : entitySchema;
 
   const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
     "@context": "https://schema.org",

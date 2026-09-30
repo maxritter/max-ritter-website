@@ -110,6 +110,6 @@ export const productSchema = (product: Product): Record<string, unknown> => ({
   applicationCategory: product.applicationCategory,
   operatingSystem: product.operatingSystem,
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  author: { "@type": "Person", name: "Max Ritter", url: `${SITE_URL}/` },
+  author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "Max Ritter", url: `${SITE_URL}/` },
   ...(product.repo ? { codeRepository: product.repo.url } : {}),
 });

@@ -1,5 +1,4 @@
 import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,19 +6,13 @@ import Footer from "@/components/Footer";
 const NotFound = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Page Not Found (404) | Max Ritter</title>
         <meta name="robots" content="noindex, follow" />
         <meta name="description" content="The page you requested could not be found. Return to Max Ritter's home page or browse Work and Skills." />
+        <link rel="canonical" href={`https://www.maxritter.net${location.pathname}`} />
       </Helmet>
       <Header />
       <main className="flex-grow flex items-center justify-center pt-16">

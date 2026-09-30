@@ -52,7 +52,7 @@ const Terms = () => {
 
             <h2 className="text-2xl font-bold mt-6 mb-4">Cookies</h2>
             <p>
-              We employ the use of cookies. By accessing Max Ritter's Personal Website, you agreed to use cookies in agreement with the Max Ritter's Privacy Policy. Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
+              This website uses cookie-free Umami and Ahrefs web analytics. It does not use advertising cookies or require an account. Details about hosting, analytics, and email contact are available in the <a href="/privacy" className="text-primary underline underline-offset-4">Privacy Policy</a>.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-4">License</h2>
@@ -126,7 +126,7 @@ const Terms = () => {
 
             <h2 className="text-2xl font-bold mt-6 mb-4">Your Privacy</h2>
             <p>
-              Please read <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
+              Please read <a href="/privacy" className="text-primary underline underline-offset-4">Privacy Policy</a>.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-4">Reservation of Rights</h2>

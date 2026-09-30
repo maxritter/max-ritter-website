@@ -4,70 +4,75 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { pageVariants } from "@/utils/animations";
 
-const Privacy = () => {
-  return (
-    <motion.div
-      className="min-h-screen flex flex-col"
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-    >
-      <SEO
-        title="Privacy Policy | Max Ritter"
-        description="Privacy policy for maxritter.net — how Max Ritter handles personal data, cookies, and analytics."
-        pagePath="privacy"
-      />
-      <Header />
-      <main className="flex-grow">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col gap-4 mb-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary">
-              Privacy Policy
-            </h1>
-          </div>
-          
-          <div className="prose prose-invert max-w-none">
-            <h2 className="text-2xl font-bold mb-4">General</h2>
-            <p>
-              At my personal website, accessible from https://www.maxritter.net, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Max Ritter and how he uses it. If you have additional questions or require more information about my Privacy Policy, do not hesitate to contact me.
-            </p>
+const Privacy = () => (
+  <motion.div className="min-h-screen flex flex-col" initial="initial" animate="in" exit="out" variants={pageVariants}>
+    <SEO
+      title="Privacy Policy | Max Ritter"
+      description="How maxritter.net uses Vercel hosting, cookie-free Umami and Ahrefs analytics, and information you send by email."
+      pagePath="privacy"
+    />
+    <Header />
+    <main className="flex-grow">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">Privacy Policy</h1>
+        <div className="prose prose-invert max-w-none [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">
+          <h2 className="text-2xl font-bold mb-4">Who runs this website</h2>
+          <p>
+            Max Ritter is responsible for this personal portfolio at www.maxritter.net.
+            Contact me at <a href="mailto:mail@maxritter.net">mail@maxritter.net</a> with questions
+            about the website or your data. My contact details are also available in the <a href="/imprint">imprint</a>.
+          </p>
 
-            <h2 className="text-2xl font-bold mt-6 mb-4">Log Files</h2>
-            <p>
-              Max Ritter follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
-            </p>
+          <h2 className="text-2xl font-bold mt-6 mb-4">Hosting and server requests</h2>
+          <p>
+            Vercel hosts and delivers this website. When you visit, your browser sends technical
+            information needed to deliver the page, including your IP address, the requested URL,
+            and browser information. The hosting provider may process request logs to operate,
+            secure, and troubleshoot its service. Details are available in
+            the <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">Vercel privacy notice</a>.
+          </p>
 
-            <h2 className="text-2xl font-bold mt-6 mb-4">Privacy Policies</h2>
-            <p>
-              You may consult this list to find the Privacy Policy for each of the advertising partners of Max Ritter. Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Max Ritter, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit. Note that Max Ritter has no access to or control over these cookies that are used by third-party advertisers.
-            </p>
+          <h2 className="text-2xl font-bold mt-6 mb-4">Website analytics</h2>
+          <p>
+            I use Umami Cloud and Ahrefs Web Analytics to understand which pages are visited and
+            improve this website. Their scripts load from cloud.umami.is and analytics.ahrefs.com.
+            Analytics can include the page visited, referring website, browser, operating system,
+            device type, and approximate country. This website does not configure session replay,
+            advertising pixels, or tracking of information you send by email.
+          </p>
+          <p>
+            Both providers describe their web analytics as cookie-free. Umami describes its collected
+            analytics as anonymized and does not track visitors across websites. Read
+            the <a href="https://docs.umami.is/docs/faq" target="_blank" rel="noopener noreferrer">Umami documentation</a> and
+            the <a href="https://ahrefs.com/web-analytics" target="_blank" rel="noopener noreferrer">Ahrefs Web Analytics information</a> for
+            details. You can block these analytics scripts using your browser settings or a content blocker.
+          </p>
 
-            <h2 className="text-2xl font-bold mt-6 mb-4">Third Party Privacy Policies</h2>
-            <p>
-              Max Ritter's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites. What Are Cookies?
-            </p>
+          <h2 className="text-2xl font-bold mt-6 mb-4">Email contact</h2>
+          <p>
+            Contact links open your email application. If you email me, I receive the information
+            you choose to send, such as your email address, name, and message. I use it to respond
+            to your enquiry and handle any resulting correspondence. There is no account registration
+            or contact form on this website.
+          </p>
 
-            <h2 className="text-2xl font-bold mt-6 mb-4">Children's Information</h2>
-            <p>
-              Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. Max Ritter does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
-            </p>
+          <h2 className="text-2xl font-bold mt-6 mb-4">External websites</h2>
+          <p>
+            Links to LinkedIn, GitHub, my blog, CV, and product websites take you to separate services.
+            Those services have their own privacy practices. Their content is not embedded in this website.
+          </p>
 
-            <h2 className="text-2xl font-bold mt-6 mb-4">Online Privacy Policy Only</h2>
-            <p>
-              This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Max Ritter. This policy is not applicable to any information collected offline or via channels other than this website.
-            </p>
-
-            <h2 className="text-2xl font-bold mt-6 mb-4">Consent</h2>
-            <p>
-              By using my website, you hereby consent to my Privacy Policy and agree to its <a href="/terms" className="text-primary hover:underline">Terms and Conditions</a>.
-            </p>
-          </div>
+          <h2 className="text-2xl font-bold mt-6 mb-4">Questions and changes</h2>
+          <p>
+            Contact <a href="mailto:mail@maxritter.net">mail@maxritter.net</a> with privacy questions
+            or requests concerning information you have sent me. I update this page when the website's
+            services change. See the <a href="/terms">Terms of Service</a> for website usage information.
+          </p>
         </div>
-      </main>
-      <Footer />
-    </motion.div>
-  );
-};
+      </div>
+    </main>
+    <Footer />
+  </motion.div>
+);
 
 export default Privacy;

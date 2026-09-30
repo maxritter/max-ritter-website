@@ -55,4 +55,6 @@ Plain, first-person, specific. No aphoristic pairs or chiasmus in headlines ("Ni
 
 - `public/mark.svg`: the hexagon mark, five stripes, gradient white to blue. Used in the header and the OG image.
 - `public/favicon.svg`, `public/favicon.ico` (16/32/48), `public/apple-touch-icon.png`: the mark on a navy tile.
-- `public/og-image.png` (1200x630): navy field, mark, wordmark, hero headline, horizon line. Regenerate it when the hero headline changes.
+- `src/assets/og-image.png` (1200x630): navy field, mark, wordmark, hero headline, horizon line. Regenerate it when the hero headline changes. Vite gives it a content-hashed URL.
+- `src/assets/fonts/` and `src/assets/portrait/`: self-hosted font and portrait files, emitted under `/assets/` with content hashes for immutable caching.
+- Home content is visible immediately on entry; route exits and navigation interactions retain their existing motion.

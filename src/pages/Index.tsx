@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { products, productSchema, type ProductStatus } from "@/data/products";
+import { products, type ProductStatus } from "@/data/products";
 import { pageVariants } from "@/utils/animations";
+import portrait176 from "@/assets/portrait/profile-176.webp";
+import portrait352 from "@/assets/portrait/profile.webp";
+import portrait528 from "@/assets/portrait/profile-528.webp";
+import portraitFallback from "@/assets/portrait/profile.jpg";
 
 const CONTACT_URL = "mailto:mail@maxritter.net";
 
@@ -45,7 +49,7 @@ const Index = () => {
   return (
     <motion.div
       className="flex min-h-screen flex-col"
-      initial="initial"
+      initial={false}
       animate="in"
       exit="out"
       variants={pageVariants}
@@ -61,12 +65,11 @@ const Index = () => {
             "https://www.linkedin.com/in/rittermax/",
             "https://dev.to/maxritter",
           ],
-          "workExample": products.map(productSchema),
         }}
       />
       <Header />
       <main className="flex-grow">
-        <motion.div className="shell" variants={container} initial="hidden" animate="show">
+        <motion.div className="shell" variants={container} initial={false} animate="show">
           <div className="mt-16 items-start md:mt-[88px] md:grid md:grid-cols-[1fr_176px] md:gap-x-[72px]">
             <div>
               <motion.h1
@@ -116,12 +119,12 @@ const Index = () => {
             <motion.figure variants={fadeUp} className="mt-10 flex flex-col gap-2.5 md:mt-1.5">
               <picture>
                 <source
-                  srcSet="/profile-176.webp 176w, /profile.webp 352w, /profile-528.webp 528w"
+                  srcSet={`${portrait176} 176w, ${portrait352} 352w, ${portrait528} 528w`}
                   sizes="176px"
                   type="image/webp"
                 />
                 <img
-                  src="/profile.jpg"
+                  src={portraitFallback}
                   alt="Max Ritter"
                   width={176}
                   height={176}
